@@ -1,0 +1,5 @@
+conexion.php
+libros/**/*.pdf
+portadas/**/*.jpg
+portadas/**/*.jpeg
+portadas/**/*.png
