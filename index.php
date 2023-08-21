@@ -1,3 +1,16 @@
+<?php
+$nombre_fichero = "include/conexion.php";
+$nombre_fichero_sispa = "include/conexion_sispa.php";
+if (!file_exists($nombre_fichero)) {
+    echo "<script> window.location.replace('activacion.php'); </script>";
+}else {
+    if (!file_exists($nombre_fichero_sispa)) {
+        echo "<script> window.location.replace('activacion_sispa.php'); </script>";
+        
+    }else {
+        
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -76,15 +89,13 @@
     <!-- END layout-wrapper -->
 
 
-    <!-- jQuery  -->
-    <script src="pp/assets/js/jquery.min.js"></script>
-    <script src="pp/assets/js/bootstrap.bundle.min.js"></script>
-    <script src="pp/assets/js/waves.js"></script>
-    <script src="pp/assets/js/simplebar.min.js"></script>
-
-    <!-- App js -->
-    <script src="pp/assets/js/theme.js"></script>
-
+    <?php include "include/pie_scripts.php"; ?>
+    
 </body>
 
 </html>
+
+<?php
+
+}
+}

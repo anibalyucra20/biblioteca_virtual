@@ -1,4 +1,5 @@
 conexion.php
+conexion_sispa.php
 libros/**/*.pdf
 img_libro/**/*.jpg
 img_libro/**/*.jpeg

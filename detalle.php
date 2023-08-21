@@ -56,24 +56,20 @@ include "include/conexion.php";
                                         <div class="col-md-8 mb-3">
                                             <h4>TITULO DEL LIBRO</h4>
                                             <div class="row">
-                                                <div class="col-md-4">
-                                                    <p><b>Nro de Páginas</b></p>
-                                                    <p><b>Autor</b></p>
-                                                    <p><b>Editorial</b></p>
-                                                    <p><b>Edición</b></p>
-                                                    <p><b>Tomo</b></p>
-                                                    <p><b>Categoría</b></p>
-                                                    <p><b>Temas Relacionados</b></p>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>: 189</p>
-                                                    <p>: Anibal Yucra Curo</p>
-                                                    <p>: I.E.S.T.P. HUANTA</p>
-                                                    <p>: 2023</p>
-                                                    <p>: I</p>
-                                                    <p>: Investigación</p>
-                                                    <p>: Desarrollo, Programación, Diseño</p>
-                                                </div>
+                                                <div class="col-md-4"><p><b>Nro de Páginas</b></p></div>
+                                                <div class="col-md-6"><p>: 189</p></div>
+                                                <div class="col-md-4"><p><b>Autor</b></p></div>
+                                                <div class="col-md-6"><p>: Anibal Yucra Curo</p></div>
+                                                <div class="col-md-4"><p><b>Editorial</b></p></div>
+                                                <div class="col-md-6"><p>: I.E.S.T.P. HUANTA</p></div>
+                                                <div class="col-md-4"><p><b>Edición</b></p></div>
+                                                <div class="col-md-6"><p>: 2023</p></div>
+                                                <div class="col-md-4"><p><b>Tomo</b></p></div>
+                                                <div class="col-md-6"><p>: I</p></div>
+                                                <div class="col-md-4"><p><b>Categoría</b></p></div>
+                                                <div class="col-md-6"><p>: Investigación</p></div>
+                                                <div class="col-md-4"><p><b>Temas Relacionados</b></p></div>
+                                                <div class="col-md-6"><p>: Desarrollo, Programación, Diseño</p></div>
                                             </div>
                                         </div>
 
@@ -96,14 +92,7 @@ include "include/conexion.php";
     <!-- END layout-wrapper -->
 
 
-    <!-- jQuery  -->
-    <script src="pp/assets/js/jquery.min.js"></script>
-    <script src="pp/assets/js/bootstrap.bundle.min.js"></script>
-    <script src="pp/assets/js/waves.js"></script>
-    <script src="pp/assets/js/simplebar.min.js"></script>
-
-    <!-- App js -->
-    <script src="pp/assets/js/theme.js"></script>
+    <?php include "include/pie_scripts.php"; ?>
 
 </body>
 
