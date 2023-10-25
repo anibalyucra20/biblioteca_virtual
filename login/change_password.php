@@ -1,7 +1,8 @@
 <?php
-include "../../include/conexion.php";
-include '../../include/busquedas.php';
-include '../../include/funciones.php';
+include "../include/conexion.php";
+include "../include/conexion_sispa.php";
+include '../include/busquedas.php';
+include '../include/funciones.php';
 
 $id_docente = $_POST['id'];
 $token = $_POST['token'];

@@ -89,6 +89,14 @@ $paginacion .= '"><a class="page-link" href="biblioteca.php?pagina=' . $paginas 
     <meta charset="utf-8" />
     <title>Biblioteca - IESTP HUANTA</title>
     <?php include "include/header.php"; ?>
+    <style>
+        .card-img-top{
+            width: 100%;
+            height: 90%;
+            object-fit: cover;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -157,17 +165,15 @@ $paginacion .= '"><a class="page-link" href="biblioteca.php?pagina=' . $paginas 
                         <?php
                         while ($res_bus = mysqli_fetch_array($ejec_buscar)) {
                         ?>
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <div class="card">
-                                    <img class="card-img-top img-fluid" src="img_libro/<?php echo $res_bus['ruta_portada'] ?>" alt="Card image cap">
+                                <div class="card col-lg-3 col-md-4 col-sm-6 m-2">
+                                    <img class="card-img-top" src="img_libro/<?php echo $res_bus['ruta_portada'] ?>">
                                     <div class="card-body">
-                                        <h5 class="card-title"><?php echo $res_bus['titulo']; ?></h5>
+                                        <h5 class="card-title" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;"><?php echo $res_bus['titulo']; ?></h5>
                                         <p class="card-text"><?php echo $res_bus['id_programa_estudio']; ?></p>
                                         <p class="card-text">Autor: Autor del libro</p>
                                         <center><a href="detalle.php" class="btn btn-info">Ver</a></center>
                                     </div>
                                 </div>
-                            </div>
                         <?php } ?>
                     </div>
                     <!-- end page title -->

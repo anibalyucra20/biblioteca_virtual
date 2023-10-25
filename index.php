@@ -8,8 +8,21 @@ if (!file_exists($nombre_fichero)) {
         echo "<script> window.location.replace('activacion_sispa.php'); </script>";
         
     }else {
-        
 
+// --------------------- INICIO DE PAGINA ---------------
+
+include "include/conexion.php";
+include "include/conexion_sispa.php";
+include 'include/busquedas.php';
+include 'include/funciones.php';
+include 'include/verificar_sesion.php';
+
+/*if (!verificar_sesion($conexion)) {
+    echo "<script>
+                  alert('Error Usted no cuenta con permiso para acceder a esta página');
+                  window.location.replace('login/');
+              </script>";
+}else {*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,6 +109,6 @@ if (!file_exists($nombre_fichero)) {
 </html>
 
 <?php
-
 }
 }
+//}

@@ -1,3 +1,7 @@
+<?php
+include("../include/conexion.php");
+include("../include/busquedas.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,13 +54,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php for ($i=1; $i <= 500; $i++) {  ?>
+                                            <?php 
+                                            $b_libros = buscar_libro($conexion);
+                                            $cont == 0 ;
+                                            while ($r_b_libro = mysqli_fetch_array($b_libros)) {
+                                                $cont ++;
+                                             ?>
                                             <tr>
-                                                <td><?php echo $i; ?></td>
-                                                <td><img src="../img_libro/libro.jpg" alt="" height="100px"></td>
-                                                <td>titulo del libro completo</td>
-                                                <td>Yucra curo anibal <?php echo $i; ?></td>
-                                                <td>Programa de estudio</td>
+                                                <td><?php echo $cont; ?></td>
+                                                <td><img src="../img_libro/<?php echo $r_b_libro['ruta_portada']; ?>" alt="" height="100px"></td>
+                                                <td><?php echo $r_b_libro['titulo']; ?></td>
+                                                <td><?php echo $r_b_libro['autor']; ?></td>
+                                                <td><?php echo $r_b_libro['edicion']; ?></td>
                                                 <td><button type="button" class="btn btn-success"> Editar</button> <button type="button" class="btn btn-primary">Ver</button></td>
                                                 <td></td>
                                             </tr>

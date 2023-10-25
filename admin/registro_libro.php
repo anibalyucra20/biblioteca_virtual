@@ -1,5 +1,9 @@
+<?php 
+include("../include/conexion.php");
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8" />
@@ -73,7 +77,7 @@
                                             </div>
                                         </div>
                                         
-                                        <button class="btn btn-primary waves-effect waves-light" type="submit">Submit form</button>
+                                        <button class="btn btn-primary waves-effect waves-light" type="submit">Registrar</button>
                                     </form>
                                 </div>
                                 <!--end card body-->
