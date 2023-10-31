@@ -1,3 +1,39 @@
+<?php 
+session_start();
+include("include/conexion.php");
+include("include/conexion_sispa.php");
+include("include/busquedas.php");
+include("include/busquedas_sispa.php");
+include("include/funciones.php");
+include("include/verificar_sesion.php");
+
+if (!verificar_sesion($conexion) == 1) {
+    echo "<script>
+                  alert('Error Usted no cuenta con permiso para acceder a esta página');
+                  window.location.replace('index.php');
+              </script>";
+} else {
+
+    $buscar_sesion= buscar_sesion($conexion, $_SESSION['id_sesion_biblioteca']);
+    $r_buscar_sesion = mysqli_fetch_array($buscar_sesion);
+
+    if ($r_buscar_sesion['tipo_acceso'] == 'docente') {
+        $b_usuario = buscarDocenteById($conexion_sispa, $r_buscar_sesion['id_usuario']);
+        $tipo_usuario = "docente";
+    }elseif ($r_buscar_sesion['tipo_acceso'] == 'estudiante') {
+        $b_usuario = buscarEstudianteById($conexion_sispa, $r_buscar_sesion['id_usuario']);
+        $tipo_usuario = "estudiante";
+    }else {
+        echo "<script>
+                  alert('Error Usted no cuenta con permiso para acceder a esta página');
+                  window.location.replace('index.php');
+              </script>";
+    }
+    $r_b_usuario = mysqli_fetch_array($b_usuario);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -25,13 +61,7 @@
                                             <h4>TITULO DEL LIBRO</h4>
                                         </div>
                                         <div class="col-md-12 mb-3">
-                                            <embed src="https://sispa.iestphuanta.edu.pe/ads.pdf" width="100%" height="900" />
-                                            <iframe src="https://sispa.iestphuanta.edu.pe/ads.pdf" width="100%" height="900" allow="autoplay"></iframe>
                                             <object class="" data="https://sispa.iestphuanta.edu.pe/ads.pdf" type="application/pdf" width="100%" height="900"></object>
-                                            
-                                            
-                                            
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -59,3 +89,6 @@
 </body>
 
 </html>
+
+
+<?php }

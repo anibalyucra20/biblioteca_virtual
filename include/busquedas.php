@@ -5,12 +5,12 @@ function buscar_sesion($conexion, $id_sesion){
 }
 
 
+
 //-------------------------LIBROS------------------------------
 function buscar_libro($conexion){
     $sql = "SELECT * FROM libros";
     return mysqli_query($conexion, $sql);
 }
-
 
 
 

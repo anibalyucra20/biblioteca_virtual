@@ -1,5 +1,35 @@
 <?php 
-include "include/conexion.php";
+session_start();
+include("include/conexion.php");
+include("include/conexion_sispa.php");
+include("include/busquedas.php");
+include("include/busquedas_sispa.php");
+include("include/funciones.php");
+include("include/verificar_sesion.php");
+
+if (!verificar_sesion($conexion) == 1) {
+    echo "<script>
+                  alert('Error Usted no cuenta con permiso para acceder a esta página');
+                  window.location.replace('index.php');
+              </script>";
+} else {
+
+    $buscar_sesion= buscar_sesion($conexion, $_SESSION['id_sesion_biblioteca']);
+    $r_buscar_sesion = mysqli_fetch_array($buscar_sesion);
+
+    if ($r_buscar_sesion['tipo_acceso'] == 'docente') {
+        $b_usuario = buscarDocenteById($conexion_sispa, $r_buscar_sesion['id_usuario']);
+        $tipo_usuario = "docente";
+    }elseif ($r_buscar_sesion['tipo_acceso'] == 'estudiante') {
+        $b_usuario = buscarEstudianteById($conexion_sispa, $r_buscar_sesion['id_usuario']);
+        $tipo_usuario = "estudiante";
+    }else {
+        echo "<script>
+                  alert('Error Usted no cuenta con permiso para acceder a esta página');
+                  window.location.replace('index.php');
+              </script>";
+    }
+    $r_b_usuario = mysqli_fetch_array($b_usuario);
 
 
 /*for ($i=0; $i < 100; $i++) { 
@@ -97,3 +127,5 @@ include "include/conexion.php";
 </body>
 
 </html>
+
+<?php }

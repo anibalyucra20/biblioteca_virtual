@@ -1,6 +1,8 @@
 <?php
 include("../include/conexion.php");
+include("../include/conexion_sispa.php");
 include("../include/busquedas.php");
+include("../include/busquedas_sispa.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">

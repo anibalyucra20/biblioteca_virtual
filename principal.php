@@ -1,4 +1,16 @@
 <?php
+$nombre_fichero = "include/conexion.php";
+$nombre_fichero_sispa = "include/conexion_sispa.php";
+if (!file_exists($nombre_fichero)) {
+    echo "<script> window.location.replace('activacion.php'); </script>";
+}else {
+    if (!file_exists($nombre_fichero_sispa)) {
+        echo "<script> window.location.replace('activacion_sispa.php'); </script>";
+        
+    }else {
+
+// --------------------- INICIO DE PAGINA ---------------
+
 session_start();
 include("include/conexion.php");
 include("include/conexion_sispa.php");
@@ -31,14 +43,19 @@ if (!verificar_sesion($conexion) == 1) {
     }
     $r_b_usuario = mysqli_fetch_array($b_usuario);
 
+/*if (!verificar_sesion($conexion)) {
+    echo "<script>
+                  alert('Error Usted no cuenta con permiso para acceder a esta página');
+                  window.location.replace('login/');
+              </script>";
+}else {*/
 ?>
-
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
-    <title>Mis Favoritos - IESTP HUANTA</title>
+    <title>Biblioteca - IESTP HUANTA</title>
     <?php include "include/header.php"; ?>
 </head>
 
@@ -54,12 +71,34 @@ if (!verificar_sesion($conexion) == 1) {
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-flex align-items-center justify-content-between">
+                                <h4 class="mb-0 font-size-18">Últimos Libros Leídos <i class="fas fa-book-open"></i> </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <?php for ($i = 0; $i < 4; $i++) { ?>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="card">
+                                    <img class="card-img-top img-fluid" src="images/libro.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Titulo del Libro</h5>
+                                        <p class="card-text">Carrera al que pertenece</p>
+                                        <p class="card-text">Autor: Autor del libro</p>
+                                        <center><a href="detalle.php" class="btn btn-info">Ver</a></center>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-flex align-items-center justify-content-between">
                                 <h4 class="mb-0 font-size-18">Mis Libros Favoritos <i class="fas fa-heart"></i> </h4>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <?php for ($i = 0; $i < 12; $i++) { ?>
+                        <?php for ($i = 0; $i < 4; $i++) { ?>
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="card">
                                     <img class="card-img-top img-fluid" src="images/libro.jpg" alt="Card image cap">
@@ -74,6 +113,8 @@ if (!verificar_sesion($conexion) == 1) {
                         <?php } ?>
                     </div>
                     <!-- end page title -->
+
+
                 </div> <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
@@ -88,8 +129,13 @@ if (!verificar_sesion($conexion) == 1) {
 
 
     <?php include "include/pie_scripts.php"; ?>
-
+    
 </body>
 
 </html>
-<?php }
+
+<?php
+}
+} 
+}
+//}
