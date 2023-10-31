@@ -1,13 +1,5 @@
 <?php
-$nombre_fichero = "include/conexion.php";
-$nombre_fichero_sispa = "include/conexion_sispa.php";
-if (!file_exists($nombre_fichero)) {
-    echo "<script> window.location.replace('activacion.php'); </script>";
-}else {
-    if (!file_exists($nombre_fichero_sispa)) {
-        echo "<script> window.location.replace('activacion_sispa.php'); </script>";
-        
-    }else {
+
 
 // --------------------- INICIO DE PAGINA ---------------
 
@@ -136,6 +128,5 @@ if (!verificar_sesion($conexion) == 1) {
 
 <?php
 }
-} 
-}
+
 //}
