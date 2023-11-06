@@ -61,7 +61,8 @@ if (!verificar_sesion($conexion) == 1) {
                                             <h4>TITULO DEL LIBRO</h4>
                                         </div>
                                         <div class="col-md-12 mb-3">
-                        
+                                        <iframe src = "/ViewerJS/#../libros/ads.pdf" width=' 400 ' height=' 300 ' enablefullscreen webkitallowfullscreen></iframe>
+                                        <iframe style="float:right;" src = "/ViewerJS/https://biblioteca.iestphuanta.edu.pe/libros/ads.pdf" width='400' height='300' allowfullscreen webkitallowfullscreen></iframe>
                                                 <embed src="https://biblioteca.iestphuanta.edu.pe/libros/ads.pdf" type="application/pdf" width="100%" height="1000px" />
                                             
                                         </div>
