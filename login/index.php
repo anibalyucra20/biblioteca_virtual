@@ -28,18 +28,21 @@
                         <div class="d-flex align-items-center min-vh-100">
                             <div class="w-100 d-block bg-white shadow-lg rounded my-5">
                                 <div class="row">
-                                    <div class="col-lg-5 d-none d-lg-block rounded-left">
-                                        <img src="../images/img_login.jpg" alt="" width="115%">
+                                    <div class="col-lg-4 d-none d-lg-block rounded-left m-3">
+                                        <br>
+                                        <img src="../images/img_login.jpg" alt="" width="120%">
                                     </div>
                                     <div class="col-lg-7">
                                         <div class="p-5">
-                                            <div class="text-center mb-5">
-                                                <a href="index.html" class="text-dark font-size-22 font-family-secondary">
-                                                     <b class="align-middle">NOMBRE DE IEST</b>
+                                            <div class="text-center mb-3">
+                                                <a class="text-dark font-size-22 font-family-secondary">
+                                                     <img src="../images/logo.png" alt="" width="150px">
+                                                     <br>
+                                                     <b class="align-middle">IESTP HUANTA</b>
                                                 </a>
                                             </div>
-                                            <h1 class="h5 mb-1">Bienvenido a la Biblioteca Virtual</h1>
-                                            <p class="text-muted mb-4">Para Ingresar deberá Iniciar Sesión</p>
+                                            <h1 class="h5 mb-1 text-center">Bienvenido a la Biblioteca Virtual</h1>
+                                            <p class="text-muted mb-3 text-center">Para Ingresar deberá Iniciar Sesión</p>
                                             <form role="form" action="iniciar_sesion.php" method="POST">
                                                 <div class="form-group">
                                                     <input type="text" class="form-control"  placeholder="Usuario" name="usuario" required>

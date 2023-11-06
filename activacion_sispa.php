@@ -77,6 +77,8 @@ $conexion_sispa->set_charset("utf8");
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Inicio - Sispa</title>
+        <link rel="shortcut icon" href="images/favicon.ico">
+
 
         <link href="pp/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="pp/assets/css/icons.min.css" rel="stylesheet" type="text/css" />

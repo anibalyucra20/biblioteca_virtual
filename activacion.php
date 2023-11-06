@@ -76,8 +76,8 @@ $conexion->set_charset("utf8");
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Inicio - Sispa</title>
-
+        <title>Inicio - Biblioteca Virtual</title>
+        <link rel="shortcut icon" href="images/favicon.ico">
         <link href="pp/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="pp/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <link href="pp/assets/css/theme.min.css" rel="stylesheet" type="text/css" />

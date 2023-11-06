@@ -5,7 +5,7 @@
             <a href="index.php" class="logo">
                 <img src="images/logo.png" alt="" width="90px">
                 <span>
-                    Biblioteca
+                    Biblioteca Virtual IESTP HUANTA
                 </span>
             </a>
 
@@ -15,11 +15,12 @@
         </div>
 
         <div class="d-flex align-items-center">
-
+<!--
             <div class="dropdown d-inline-block ml-2">
                 <button type="button" class="btn header-item noti-icon waves-effect waves-light" id="page-header-search-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="mdi mdi-magnify"></i>
                 </button>
+                
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0" aria-labelledby="page-header-search-dropdown">
 
                     <form class="p-3">
@@ -33,6 +34,7 @@
                         </div>
                     </form>
                 </div>
+-->
             </div>
             <div class="dropdown d-inline-block ml-2">
                 <button type="button" class="btn header-item waves-effect waves-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,9 +43,6 @@
                     <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="#">
-                        <span>Cambiar Contraseña</span>
-                    </a>
                     <a class="dropdown-item d-flex align-items-center justify-content-between" href="include/cerrar_sesion.php">
                         <span>Cerrar Sesión</span>
                     </a>
