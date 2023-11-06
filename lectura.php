@@ -62,7 +62,7 @@ if (!verificar_sesion($conexion) == 1) {
                                         </div>
                                         <div class="col-md-12 mb-3">
                         
-                                                <embed src="https://biblioteca.iestphuanta.edu.pe/libros/ads.pdf" type="application/pdf" width="100%" height="1000px" />
+                                                <embed src="libros/ads.pdf" type="application/pdf" width="100%" height="1000px" />
                                             
                                         </div>
                                     </div>
