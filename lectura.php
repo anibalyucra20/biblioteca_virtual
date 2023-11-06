@@ -61,9 +61,7 @@ if (!verificar_sesion($conexion) == 1) {
                                             <h4>TITULO DEL LIBRO</h4>
                                         </div>
                                         <div class="col-md-12 mb-3">
-                                        <iframe src="https://drive.google.com/file/d/1GP451AKb960eum9jgpO9YMpGWn15Qiws/preview" width="100%" height="900"></iframe>
-                                        <embed src="https://biblioteca.iestphuanta.edu.pe/libros/ads.pdf" type="application/pdf" width="100%" height="1000px" />
-                                            
+                                        <iframe src="https://drive.google.com/file/d/1jw4Q8xpOvgp11fDmVB2EYqNrjF3JNz5n/preview" width="100%" height="900"></iframe>
                                         </div>
                                     </div>
                                 </div>
