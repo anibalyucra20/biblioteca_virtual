@@ -62,6 +62,8 @@ if (!verificar_sesion($conexion) == 1) {
                                         </div>
                                         <div class="col-md-12 mb-3">
                                             <object class="" data="https://sispa.iestphuanta.edu.pe/ads.pdf" type="application/pdf" width="100%" height="900"></object>
+                                            <embed src="https://sispa.iestphuanta.edu.pe/ads.pdf" width="100%" height="900" />
+                                            <iframe src="https://sispa.iestphuanta.edu.pe/ads.pdf" width="100%" height="900" allow="autoplay"></iframe>
                                         </div>
                                     </div>
                                 </div>
