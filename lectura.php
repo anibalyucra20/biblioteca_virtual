@@ -63,8 +63,9 @@ if (!verificar_sesion($conexion) == 1) {
                                         <div class="col-md-12 mb-3">
                                             <!--<object class="" data="libros/ads.pdf" type="application/pdf" width="100%" height="900"></object>
                                             <embed src="libros/ads.pdf" width="100%" height="900" type="application/pdf"/>-->
-                                            <iframe src="https://biblioteca.iestphuanta.edu.pe/libros/ads.pdf&embedded=true" style="width:100%; height:700px;" frameborder="0" ></iframe>
-                                            <iframe src="libros/ads.pdf" width="100%" height="900" allow="autoplay" ></iframe>
+                                            
+                                                <embed src="https://biblioteca.iestphuanta.edu.pe/libros/ads.pdf" type="application/pdf" width="100%" height="1000px" />
+                                            
                                         </div>
                                     </div>
                                 </div>
