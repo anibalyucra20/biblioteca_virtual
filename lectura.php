@@ -61,9 +61,9 @@ if (!verificar_sesion($conexion) == 1) {
                                             <h4>TITULO DEL LIBRO</h4>
                                         </div>
                                         <div class="col-md-12 mb-3">
-                                            <object class="" data="libros/2023-08-19_analisis y diseño de sistemas_kendall y kendall_ads.pdf" type="application/pdf" width="100%" height="900"></object>
-                                            <embed src="libros/2023-08-19_analisis y diseño de sistemas_kendall y kendall_ads.pdf" width="100%" height="900" type="application/pdf"/>
-                                            <iframe src="libros/2023-08-19_analisis y diseño de sistemas_kendall y kendall_ads.pdf" width="100%" height="900" allow="autoplay" ></iframe>
+                                            <object class="" data="libros/ads.pdf" type="application/pdf" width="100%" height="900"></object>
+                                            <embed src="libros/ads.pdf" width="100%" height="900" type="application/pdf"/>
+                                            <iframe src="libros/ads.pdf" width="100%" height="900" allow="autoplay" ></iframe>
                                         </div>
                                     </div>
                                 </div>
