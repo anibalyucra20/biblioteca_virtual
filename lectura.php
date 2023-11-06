@@ -61,8 +61,9 @@ if (!verificar_sesion($conexion) == 1) {
                                             <h4>TITULO DEL LIBRO</h4>
                                         </div>
                                         <div class="col-md-12 mb-3">
-                                            <object class="" data="libros/ads.pdf" type="application/pdf" width="100%" height="900"></object>
-                                            <embed src="libros/ads.pdf" width="100%" height="900" type="application/pdf"/>
+                                            <!--<object class="" data="libros/ads.pdf" type="application/pdf" width="100%" height="900"></object>
+                                            <embed src="libros/ads.pdf" width="100%" height="900" type="application/pdf"/>-->
+                                            <iframe src="libros/ads.pdf&embedded=true" style="width:100%; height:700px;" frameborder="0" ></iframe>
                                             <iframe src="libros/ads.pdf" width="100%" height="900" allow="autoplay" ></iframe>
                                         </div>
                                     </div>
