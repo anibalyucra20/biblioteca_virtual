@@ -71,7 +71,7 @@ if (!verificar_sesion($conexion) == 1) {
                         <?php for ($i = 0; $i < 4; $i++) { ?>
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="card">
-                                    <img class="card-img-top img-fluid" src="images/libro.jpg" alt="Card image cap">
+                                    <img class="card-img-top img-fluid" src="https://drive.google.com/uc?export=view&id=1tpugzZzQI17IV7KPnZ0C6ZPCCMCQoUmY" alt="Card image cap">
                                     <div class="card-body">
                                         <h5 class="card-title">Titulo del Libro</h5>
                                         <p class="card-text">Carrera al que pertenece</p>
@@ -93,7 +93,7 @@ if (!verificar_sesion($conexion) == 1) {
                         <?php for ($i = 0; $i < 4; $i++) { ?>
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="card">
-                                    <img class="card-img-top img-fluid" src="images/libro.jpg" alt="Card image cap">
+                                    <img class="card-img-top img-fluid" src="https://drive.google.com/uc?export=view&id=1tpugzZzQI17IV7KPnZ0C6ZPCCMCQoUmY" alt="Card image cap">
                                     <div class="card-body">
                                         <h5 class="card-title">Titulo del Libro</h5>
                                         <p class="card-text">Carrera al que pertenece</p>

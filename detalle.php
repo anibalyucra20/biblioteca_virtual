@@ -77,7 +77,7 @@ if (!verificar_sesion($conexion) == 1) {
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-4 mb-3">
-                                            <img class="card-img-top img-fluid" src="images/libro.jpg" alt="Card image cap">
+                                            <img class="card-img-top img-fluid" src="https://drive.google.com/uc?export=view&id=1tpugzZzQI17IV7KPnZ0C6ZPCCMCQoUmY" alt="Card image cap">
                                             <center>
                                                 <button type="button" class="btn btn-danger"><i class="fas fa-heart"></i></button>
                                                 <a href="lectura.php"  class="btn btn-info">Leer Libro</a>

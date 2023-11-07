@@ -201,6 +201,7 @@ if (!verificar_sesion($conexion) == 1) {
                             while ($res_bus = mysqli_fetch_array($ejec_buscar)) {
                             ?>
                                 <div class="card col-lg-3 col-md-4 col-sm-6 m-2">
+                                    <!-- https://tecnoapuntes.com/tutoriales/tics/google/insertar-imagenes-desde-google-drive-en-una-pagina-web/ -->
                                     <img class="card-img-top" src="https://drive.google.com/uc?export=view&id=<?php echo $res_bus['ruta_portada'] ?>">
                                     <div class="card-body">
                                         <h5 class="card-title" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;"><?php echo $res_bus['titulo']; ?></h5>
