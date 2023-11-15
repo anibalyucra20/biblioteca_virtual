@@ -65,7 +65,7 @@ include("../include/busquedas_sispa.php");
                                              ?>
                                             <tr>
                                                 <td><?php echo $cont; ?></td>
-                                                <td><img src="https://drive.google.com/uc?export=view&id="<?php echo $r_b_libro['link_portada']; ?>></td>
+                                                <td><img src="https://drive.google.com/uc?export=view&id=<?php echo $r_b_libro['link_portada']; ?>" width="100px"></td>
                                                 <td><?php echo $r_b_libro['titulo']; ?></td>
                                                 <td><?php echo $r_b_libro['autor']; ?></td>
                                                 <td><?php echo $r_b_libro['edicion']; ?></td>
