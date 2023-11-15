@@ -1,4 +1,4 @@
-<?php 
+<?php
 include("../include/conexion.php");
 include("../include/conexion_sispa.php");
 include("../include/busquedas.php");
@@ -55,7 +55,7 @@ include("../include/busquedas_sispa.php");
                                                 <input type="text" class="form-control" name="editorial" required>
                                             </div>
                                             <div class="col-md-6 mb-3">
-                                                <label for="validationCustom02">Edicion :</label>
+                                                <label for="validationCustom02">Año de Edicion :</label>
                                                 <input type="text" class="form-control" name="edicion" required>
                                             </div>
                                             <div class="col-md-6 mb-3">
@@ -67,8 +67,34 @@ include("../include/busquedas_sispa.php");
                                                 <input type="text" class="form-control" name="categoria" required>
                                             </div>
                                             <div class="col-md-12 mb-3">
+                                                <label for="validationCustom02">ISBN :</label>
+                                                <input type="text" class="form-control" name="isbn" required>
+                                            </div>
+                                            <div class="col-md-12 mb-3">
                                                 <label for="validationCustom02">Temas Relacionados :</label>
-                                                <textarea class="form-control" name="temas_relacionados" id="" cols="30" rows="10" style="resize: none;" required></textarea >
+                                                <textarea class="form-control" name="temas_relacionados" id="" cols="30" rows="10" style="resize: none;" required></textarea>
+                                            </div>
+                                            <div class="col-md-12 mb-3">
+                                                <label for="validationCustom02">Programa de Estudios :</label>
+                                                <select name="programa_estudios" class="form-control" required>
+                                                    <option value=""></option>
+                                                    <?php 
+                                                    $b_programas = buscarCarreras($conexion_sispa);
+                                                    while ($r_b_programas = mysqli_fetch_array($b_programas)) { ?>
+                                                        <option value="<?php $r_b_programas['id']; ?>"><?php echo $r_b_programas['nombre'] ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-12 mb-3">
+                                                <label for="validationCustom02">Semestre :</label>
+                                                <select name="semestre" class="form-control" required>
+                                                    <option value=""></option>
+                                                    <?php 
+                                                    $b_semestre = buscarSemestre($conexion_sispa);
+                                                    while ($r_b_semestre = mysqli_fetch_array($b_semestre)) { ?>
+                                                        <option value="<?php $r_b_semestre['id']; ?>"><?php echo $r_b_semestre['descripcion'] ?></option>
+                                                    <?php } ?>
+                                                </select>
                                             </div>
                                             <div class="col-md-12 mb-3">
                                                 <label for="validationCustom02">Archivo :</label>
@@ -79,7 +105,7 @@ include("../include/busquedas_sispa.php");
                                                 <input type="file" name="portada" required accept="image/*">
                                             </div>
                                         </div>
-                                        
+
                                         <button class="btn btn-primary waves-effect waves-light" type="submit">Registrar</button>
                                     </form>
                                 </div>

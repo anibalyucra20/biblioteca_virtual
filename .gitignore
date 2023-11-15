@@ -4,3 +4,5 @@ libros/**/*.pdf
 img_libro/**/*.jpg
 img_libro/**/*.jpeg
 img_libro/**/*.png
+
+credencial.json
