@@ -18,7 +18,7 @@ $hoy = date("Y-m-d");
 $nombre_archivos = $hoy . "_" . $titulo . "_" . $autor;
 // cargar archivos a google
 include '../../librerias/google-api/vendor/autoload.php';
-putenv('GOOGLE_APPLICATION_CREDENTIALS=credencial.json');// cargamos la ruta de la credencial
+putenv('GOOGLE_APPLICATION_CREDENTIALS=../../librerias/credencial.json');// cargamos la ruta de la credencial
 
 $client = new Google_Client();
 $client->useApplicationDefaultCredentials();
@@ -63,12 +63,12 @@ try {
         array(
             'data' => file_get_contents($file_path_libro),
             'mimeType' => $mime_type_libro,
-            'uploadTyoe' => 'media'
+            'uploadType' => 'media'
         )
     );
     
     $id_portada_drive = $resultado_portada->id;
-    //$id_libro_drive = $resultado_libro->id;
+    $id_libro_drive = $resultado_libro->id;
 
 } catch (Google_Service_Exception $gs) {
     $mensaje = json_decode($gs->getMessage());
