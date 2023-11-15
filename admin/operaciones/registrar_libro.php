@@ -9,19 +9,19 @@ $tomo = $_POST['tomo'];
 $categoria = $_POST['categoria'];
 $isbn = $_POST['isbn'];
 $temas_relacionados = $_POST['temas_relacionados'];
-$id_programa_estudio = $_POST['id_programa_m'];
-$id_semestre = $_POST['id_semestre_m'];
-$id_unidad_didactica = $_POST['id_unidad_didactica_m'];
+$id_programa_estudio = $_POST['id_programa'];
+$id_semestre = $_POST['id_semestre'];
+$id_unidad_didactica = $_POST['id_unidad_didactica'];
 
 
 $hoy = date("Y-m-d");
 $nombre_archivos = $hoy . "_" . $titulo . "_" . $autor;
 // cargar archivos a google
 include '../../librerias/google-api/vendor/autoload.php';
-putenv('GOOGLE_APPLICATION_CREDENTIALS=librerias/credencial.json');// cargamos la ruta de la credencial
+putenv('GOOGLE_APPLICATION_CREDENTIALS=credencial.json');// cargamos la ruta de la credencial
 
 $client = new Google_Client();
-$cliente->useApplicationDefaultCredentials();
+$client->useApplicationDefaultCredentials();
 $client->setScopes(['https://www.googleapis.com/auth/drive.file']);
 
 try {
@@ -55,7 +55,7 @@ try {
         array(
             'data' => file_get_contents($file_path_portada),
             'mimeType' => $mime_type_portada,
-            'uploadTyoe' => 'media'
+            'uploadType' => 'media'
         )
     );
     $resultado_libro = $service->files->create(
@@ -68,7 +68,7 @@ try {
     );
     
     $id_portada_drive = $resultado_portada->id;
-    $id_libro_drive = $resultado_libro->id;
+    //$id_libro_drive = $resultado_libro->id;
 
 } catch (Google_Service_Exception $gs) {
     $mensaje = json_decode($gs->getMessage());
@@ -99,11 +99,10 @@ try {
 
     
 
-    $consulta = "INSERT INTO libros (titulo, autor, editorial, edicion, tomo, tipo_libro,isbn,paginas, temas_relacionados,id_programa_estudio,id_semestre,id_unidad_didactica, link_portada, link_libro) VALUES ('$titulo', '$autor', '$editorial', '$edicion', '$tomo', '$categoria','$isbn', '$cant_paginas', '$temas_relacionados','$id_programa_estudio','$id_semestre','$id_unidad_didactica', '$id_portada_drive', '$id_libro_drive')";
+    $consulta = "INSERT INTO libros (titulo, autor, editorial, edicion, tomo, tipo_libro, isbn, paginas, temas_relacionados,id_programa_estudio, id_semestre, id_unidad_didactica, link_portada, link_libro) VALUES ('$titulo', '$autor', '$editorial', '$edicion', '$tomo', '$categoria','$isbn', '$cant_paginas', '$temas_relacionados','$id_programa_estudio','$id_semestre','$id_unidad_didactica', '$id_portada_drive', '$id_libro_drive')";
     if (mysqli_query($conexion, $consulta)) {
         echo "<script>
 			        alert('Se realizó el registro con Éxito');
-			        window.location= '../registro_libro.php';
 		            </script>
 		            ";
     } else {

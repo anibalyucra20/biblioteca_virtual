@@ -105,11 +105,11 @@ include("../include/busquedas_sispa.php");
                                             </div>
                                             <div class="col-md-12 mb-3">
                                                 <label for="validationCustom02">Archivo :</label>
-                                                <input type="file" name="archivo" required accept=".pdf">
+                                                <input type="file" name="archivo" required accept=".pdf" class="form-control">
                                             </div>
                                             <div class="col-md-12 mb-3">
                                                 <label for="validationCustom02">Portada :</label>
-                                                <input type="file" name="portada" required accept="image/*">
+                                                <input type="file" name="portada" required accept="image/*" class="form-control">
                                             </div>
                                         </div>
 
