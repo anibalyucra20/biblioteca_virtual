@@ -68,7 +68,21 @@ include("../include/busquedas_sispa.php");
                                                 <td><img src="https://drive.google.com/uc?export=view&id=<?php echo $r_b_libro['link_portada']; ?>" width="100px"></td>
                                                 <td><?php echo $r_b_libro['titulo']; ?></td>
                                                 <td><?php echo $r_b_libro['autor']; ?></td>
-                                                <td><?php echo $r_b_libro['edicion']; ?></td>
+                                                <td><?php
+                                                    $b_programa = buscarCarrerasById($conexion_sispa, $r_b_libro['id_programa_estudio']);
+                                                    $r_b_programa = mysqli_fetch_array($b_programa);
+                                                    echo $r_b_programa['nombre'];
+                                                ?></td>
+                                                <td><?php
+                                                    $b_semestre = buscarSemestreById($conexion_sispa, $r_b_libro['id_semestre']);
+                                                    $r_b_semestre = mysqli_fetch_array($b_semestre);
+                                                    echo $r_b_semestre['descripcion'];
+                                                ?></td>
+                                                <td><?php
+                                                    $b_ud = buscarUdById($conexion_sispa, $r_b_libro['id_semestre']);
+                                                    $r_b_ud = mysqli_fetch_array($b_ud);
+                                                    echo $r_b_ud['descripcion'];
+                                                ?></td>
                                                 <td><button type="button" class="btn btn-success"> Editar</button> <button type="button" class="btn btn-primary">Ver</button></td>
                                             </tr>
                                             <?php } ?>
