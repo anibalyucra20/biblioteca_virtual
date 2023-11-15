@@ -22,6 +22,7 @@ include("../include/busquedas_sispa.php");
     <link href="../pp/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="../pp/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="../pp/assets/css/theme.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -42,6 +43,34 @@ include("../include/busquedas_sispa.php");
                                     </div>
                                     <form role="form" action="operaciones/registrar_libro.php" method="POST" enctype="multipart/form-data">
                                         <div class="form-row">
+                                            <div class="col-md-12 mb-3">
+                                                <label for="validationCustom01">Programa de Estudios :</label>
+                                                <select name="id_programa" id="id_programa_m" class="form-control" required>
+                                                    <option value=""></option>
+                                                    <?php 
+                                                    $b_carreras = buscarCarreras($conexion_sispa);
+                                                    while ($r_b_carreras = mysqli_fetch_array($b_carreras)) {?>
+                                                        <option value="<?php echo $r_b_carreras['id']; ?>"><?php echo $r_b_carreras['nombre']; ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-12 mb-3">
+                                                <label for="validationCustom01">Semestre :</label>
+                                                <select name="id_semestre" id="id_semestre_m" class="form-control" required>
+                                                    <option value=""></option>
+                                                    <?php 
+                                                    $b_semestre= buscarSemestre($conexion_sispa);
+                                                    while ($r_b_semestre = mysqli_fetch_array($b_semestre)) {?>
+                                                        <option value="<?php echo $r_b_semestre['id']; ?>"><?php echo $r_b_semestre['descripcion']; ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-12 mb-3">
+                                                <label for="validationCustom01">Unidad Didáctica :</label>
+                                                <select name="id_unidad_didactica" id="id_unidad_didactica_m" class="form-control" required>
+                                                    <option value=""></option>
+                                                </select>
+                                            </div>
                                             <div class="col-md-12 mb-3">
                                                 <label for="validationCustom01">Título del Libro :</label>
                                                 <input type="text" class="form-control" name="titulo" required>
@@ -73,28 +102,6 @@ include("../include/busquedas_sispa.php");
                                             <div class="col-md-12 mb-3">
                                                 <label for="validationCustom02">Temas Relacionados :</label>
                                                 <textarea class="form-control" name="temas_relacionados" id="" cols="30" rows="10" style="resize: none;" required></textarea>
-                                            </div>
-                                            <div class="col-md-12 mb-3">
-                                                <label for="validationCustom02">Programa de Estudios :</label>
-                                                <select name="programa_estudios" class="form-control" required>
-                                                    <option value=""></option>
-                                                    <?php 
-                                                    $b_programas = buscarCarreras($conexion_sispa);
-                                                    while ($r_b_programas = mysqli_fetch_array($b_programas)) { ?>
-                                                        <option value="<?php $r_b_programas['id']; ?>"><?php echo $r_b_programas['nombre'] ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-12 mb-3">
-                                                <label for="validationCustom02">Semestre :</label>
-                                                <select name="semestre" class="form-control" required>
-                                                    <option value=""></option>
-                                                    <?php 
-                                                    $b_semestre = buscarSemestre($conexion_sispa);
-                                                    while ($r_b_semestre = mysqli_fetch_array($b_semestre)) { ?>
-                                                        <option value="<?php $r_b_semestre['id']; ?>"><?php echo $r_b_semestre['descripcion'] ?></option>
-                                                    <?php } ?>
-                                                </select>
                                             </div>
                                             <div class="col-md-12 mb-3">
                                                 <label for="validationCustom02">Archivo :</label>
@@ -143,6 +150,31 @@ include("../include/busquedas_sispa.php");
     <script src="../pp/assets/pages/fileuploads-demo.js"></script>
     <!-- App js -->
     <script src="../pp/assets/js/theme.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('#id_programa_m').change(function(){
+          listar_uds();
+        });
+        $('#id_semestre_m').change(function(){
+          listar_uds();
+        });
+        
+      })
+    </script>                                                     
+    <script type="text/javascript">
+     function listar_uds(){
+      var carr = $('#id_programa_m').val();
+      var sem = $('#id_semestre_m').val();
+      $.ajax({
+        type:"POST",
+        url:"operaciones/listar_ud.php",
+        data: {id_pe: carr, id_sem: sem},
+          success:function(r){
+            $('#id_unidad_didactica_m').html(r);
+          }
+      });
+    }
+    </script>
 </body>
 
 </html>

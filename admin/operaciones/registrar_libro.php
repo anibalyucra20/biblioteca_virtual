@@ -7,7 +7,12 @@ $editorial = $_POST['editorial'];
 $edicion = $_POST['edicion'];
 $tomo = $_POST['tomo'];
 $categoria = $_POST['categoria'];
+$isbn = $_POST['isbn'];
 $temas_relacionados = $_POST['temas_relacionados'];
+$id_programa_estudio = $_POST['id_programa_m'];
+$id_semestre = $_POST['id_semestre_m'];
+$id_unidad_didactica = $_POST['id_unidad_didactica_m'];
+
 
 $hoy = date("Y-m-d");
 $nombre_archivos = $hoy . "_" . $titulo . "_" . $autor;
@@ -92,7 +97,9 @@ try {
     }
     $cant_paginas =  contar_paginas($_FILES['archivo']['tmp_name']);
 
-    $consulta = "INSERT INTO libros (titulo, autor, editorial, edicion, tomo, categoria, temas_relacionados, paginas, ruta_libro, ruta_portada) VALUES ('$titulo', '$autor', '$editorial', '$edicion', '$tomo', '$categoria', '$temas_relacionados', '$cant_paginas', '$id_libro_drive', '$id_portada_drive')";
+    
+
+    $consulta = "INSERT INTO libros (titulo, autor, editorial, edicion, tomo, tipo_libro,isbn,paginas, temas_relacionados,id_programa_estudio,id_semestre,id_unidad_didactica, link_portada, link_libro) VALUES ('$titulo', '$autor', '$editorial', '$edicion', '$tomo', '$categoria','$isbn', '$cant_paginas', '$temas_relacionados','$id_programa_estudio','$id_semestre','$id_unidad_didactica', '$id_portada_drive', '$id_libro_drive')";
     if (mysqli_query($conexion, $consulta)) {
         echo "<script>
 			        alert('Se realizó el registro con Éxito');

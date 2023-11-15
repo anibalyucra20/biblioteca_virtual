@@ -5,7 +5,7 @@ include("../include/busquedas.php");
 include("../include/busquedas_sispa.php");
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8" />
@@ -51,8 +51,9 @@ include("../include/busquedas_sispa.php");
                                                 <th>Titulo</th>
                                                 <th>Autor</th>
                                                 <th>Programa de Estudios</th>
+                                                <th>Semestre</th>
+                                                <th>Unidad Didáctica</th>
                                                 <th>Acciones</th>
-                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -69,7 +70,6 @@ include("../include/busquedas_sispa.php");
                                                 <td><?php echo $r_b_libro['autor']; ?></td>
                                                 <td><?php echo $r_b_libro['edicion']; ?></td>
                                                 <td><button type="button" class="btn btn-success"> Editar</button> <button type="button" class="btn btn-primary">Ver</button></td>
-                                                <td></td>
                                             </tr>
                                             <?php } ?>
                                         </tbody>
