@@ -15,41 +15,27 @@
         </div>
 
         <div class="d-flex align-items-center">
-<!--
-            <div class="dropdown d-inline-block ml-2">
-                <button type="button" class="btn header-item noti-icon waves-effect waves-light" id="page-header-search-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="mdi mdi-magnify"></i>
-                </button>
-                
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0" aria-labelledby="page-header-search-dropdown">
-
-                    <form class="p-3">
-                        <div class="form-group m-0">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
--->
-            </div>
-            <div class="dropdown d-inline-block ml-2">
-                <button type="button" class="btn header-item waves-effect waves-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle header-profile-user" src="images/no-image.jpeg" alt="Header Avatar">
-                    <span class="d-none d-sm-inline-block ml-1"><?php echo $r_b_usuario['apellidos_nombres'];?></span>
-                    <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
-                </button>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="include/cerrar_sesion.php">
-                        <span>Cerrar Sesión</span>
-                    </a>
-                </div>
-            </div>
-
         </div>
+        <div class="dropdown d-inline-block ml-2">
+            <button type="button" class="btn header-item waves-effect waves-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img class="rounded-circle header-profile-user" src="images/no-image.jpeg" alt="Header Avatar">
+                <span class="d-none d-sm-inline-block ml-1"><?php echo $r_b_usuario['apellidos_nombres']; ?></span>
+                <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
+            </button>
+
+            <div class="dropdown-menu dropdown-menu-right">
+                <?php if (($r_b_usuario['id_cargo'] == 2) && ($tipo_usuario == "docente")) { ?>
+                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="admin/">
+                    <span>Administración</span>
+                </a>
+                <?php } ?>
+                <a class="dropdown-item d-flex align-items-center justify-content-between" href="include/cerrar_sesion.php">
+                    <span>Cerrar Sesión</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
     </div>
 </header>
 <div class="topnav">

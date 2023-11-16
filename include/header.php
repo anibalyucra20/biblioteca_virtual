@@ -8,3 +8,10 @@
 <link href="pp/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <link href="pp/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 <link href="pp/assets/css/theme.min.css" rel="stylesheet" type="text/css" />
+<style>
+            .card-img-top {
+                width: 100%;
+                height: 80%;
+                object-fit: cover;
+            }
+        </style>
