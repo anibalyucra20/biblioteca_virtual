@@ -14,16 +14,68 @@ if (!verificar_sesion($conexion) == 1) {
               </script>";
 } else {
 
-    $buscar_sesion= buscar_sesion($conexion, $_SESSION['id_sesion_biblioteca']);
+    //recibir valores para la busqueda
+    if (isset($_GET['titulo'])) { $titulo = $_GET['titulo']; }else{ $titulo = '';}
+    if (isset($_GET['autor'])) { $autor = $_GET['autor']; }else{ $autor = '';}
+    if (isset($_GET['temas'])) { $temas = $_GET['temas']; }else{ $temas = '';}
+    if (isset($_GET['programa_estudio'])) { $programa_estudio = $_GET['programa_estudio']; }else{ $programa_estudio = 'TODOS';}
+    if (isset($_GET['semestre'])) { $semestre = $_GET['semestre']; }else{ $semestre = 'TODOS';}
+    if (isset($_GET['unidad_didactica'])) { $unidad_didactica = $_GET['unidad_didactica']; }else{ $unidad_didactica = 'TODOS';}
+
+    $envio_get = "&titulo=".$titulo."&autor=".$autor."&temas=".$temas."&programa_estudio=".$programa_estudio."&semestre=".$semestre."&unidad_didactica=".$unidad_didactica;
+    
+    $validar = 0;
+    $consulta_especial = "SELECT * FROM libros WHERE ";
+    if(!$titulo==''){ $consulta_especial.= " titulo LIKE %".$titulo."%"; $validar++;}
+    
+    if($autor!='' && $validar>0){ 
+        $consulta_especial.= " AND autor LIKE %".$autor."%"; 
+        $validar++;
+    }elseif($autor !='' && $validar ==0){ 
+        $consulta_especial.= " autor LIKE %".$autor."%"; 
+        $validar++; 
+    }
+
+    if($temas!='' && $validar>0){ 
+        $consulta_especial.= " AND temas_relacionados LIKE %".$temas."%"; 
+        $validar++;
+    }elseif($temas!='' && $validar==0){ 
+        $consulta_especial.= " temas_relacionados LIKE %".$temas."%"; 
+        $validar++; }
+
+    if($programa_estudio!='TODOS' && $validar>0){ 
+        $consulta_especial.= " AND id_programa_estudio=".$programa_estudio; 
+        $validar++;
+    }elseif($programa_estudio!='TODOS' && $validar==0){ 
+        $consulta_especial.= " id_programa_estudio=".$programa_estudio; 
+        $validar++; }
+
+    if($semestre!='TODOS' && $validar>0){ 
+        $consulta_especial.= " AND id_semestre=".$semestre; 
+        $validar++;
+    }elseif($semestre!='TODOS' && $validar==0){ 
+        $consulta_especial.= " id_semestre=".$semestre; 
+        $validar++; }
+
+    if($unidad_didactica!='TODOS' && $validar>0){ 
+        $consulta_especial.= " AND id_unidad_didactica=".$unidad_didactica; 
+        $validar++;
+    }elseif($unidad_didactica!='TODOS' && $validar==0){ 
+        $consulta_especial.= " id_unidad_didactica=".$unidad_didactica; 
+        $validar++; }
+
+    
+
+    $buscar_sesion = buscar_sesion($conexion, $_SESSION['id_sesion_biblioteca']);
     $r_buscar_sesion = mysqli_fetch_array($buscar_sesion);
 
     if ($r_buscar_sesion['tipo_acceso'] == 'docente') {
         $b_usuario = buscarDocenteById($conexion_sispa, $r_buscar_sesion['id_usuario']);
         $tipo_usuario = "docente";
-    }elseif ($r_buscar_sesion['tipo_acceso'] == 'estudiante') {
+    } elseif ($r_buscar_sesion['tipo_acceso'] == 'estudiante') {
         $b_usuario = buscarEstudianteById($conexion_sispa, $r_buscar_sesion['id_usuario']);
         $tipo_usuario = "estudiante";
-    }else {
+    } else {
         echo "<script>
                   alert('Error Usted no cuenta con permiso para acceder a esta página');
                   window.location.replace('index.php');
@@ -32,9 +84,10 @@ if (!verificar_sesion($conexion) == 1) {
     $r_b_usuario = mysqli_fetch_array($b_usuario);
 
     
+
     //https://www.youtube.com/watch?v=tRUg2fSLRJo
     $bbb = "SELECT * FROM libros";
-    $ejec = mysqli_query($conexion, $bbb);
+    $ejec = mysqli_query($conexion, $consulta_especial);
     $cont = mysqli_num_rows($ejec);
 
 
@@ -45,8 +98,8 @@ if (!verificar_sesion($conexion) == 1) {
     $iniciar = ($_GET['pagina'] - 1) * $articulos_por_pagina;
 
 
-    if (!isset($_GET['pagina'])) header('location:biblioteca.php?pagina=1');
-    if ($_GET['pagina'] > $paginas || $_GET['pagina'] < 1) header('location:biblioteca.php?pagina=1');
+    if (!isset($_GET['pagina'])) header('location:biblioteca.php?pagina=1'.$envio_get);
+    if ($_GET['pagina'] > $paginas || $_GET['pagina'] < 1) header('location:biblioteca.php?pagina=1'.$envio_get);
 
     $buscar = "SELECT * FROM libros LIMIT $iniciar, $articulos_por_pagina";
     $ejec_buscar = mysqli_query($conexion, $buscar);
@@ -58,7 +111,7 @@ if (!verificar_sesion($conexion) == 1) {
     if ($_GET['pagina'] == 1) {
         $paginacion .= " disabled";
     }
-    $paginacion .= ' "><a class="page-link" href="biblioteca.php?pagina=1">Inicio</a></li>';
+    $paginacion .= ' "><a class="page-link" href="biblioteca.php?pagina=1'.$envio_get.'">Inicio</a></li>';
 
     $paginacion .= '<li class="page-item ';
     if ($_GET['pagina'] == 1) {
@@ -66,7 +119,7 @@ if (!verificar_sesion($conexion) == 1) {
     }
     $paginacion .= '"><a class="page-link" href="biblioteca.php?pagina=';
     $paginacion .= $_GET['pagina'] - 1;
-    $paginacion .= '">Anterior</a></li>';
+    $paginacion .= $envio_get.'">Anterior</a></li>';
 
 
 
@@ -82,7 +135,7 @@ if (!verificar_sesion($conexion) == 1) {
         }
         if ($i == $n_n) {
             $nn = $_GET["pagina"] + 1;
-            $paginacion .= '<li class="page-item"><a class="page-link" href="biblioteca.php?pagina=' . $nn . '">...</a></li>';
+            $paginacion .= '<li class="page-item"><a class="page-link" href="biblioteca.php?pagina=' . $nn .$envio_get. '">...</a></li>';
             $i = $paginas - 2;
         }
         $paginacion .= '<li class="page-item ';
@@ -91,7 +144,7 @@ if (!verificar_sesion($conexion) == 1) {
         }
         $paginacion .= '" ><a class="page-link" href="biblioteca.php?pagina=';
         $paginacion .= $i;
-        $paginacion .= ' ">' . $i . '</a></li>';
+        $paginacion .= $envio_get.' ">' . $i . '</a></li>';
     }
 
     $paginacion .= '<li class="page-item ';
@@ -100,21 +153,21 @@ if (!verificar_sesion($conexion) == 1) {
     }
     $paginacion .= '"><a class="page-link" href="biblioteca.php?pagina=';
     $paginacion .=  $_GET['pagina'] + 1;
-    $paginacion .= '">Siguiente</a></li>';
+    $paginacion .= $envio_get.'">Siguiente</a></li>';
 
     $paginacion .= '<li class="page-item ';
     if ($_GET['pagina'] >= $paginas) {
         $paginacion .= "disabled";
     }
-    $paginacion .= '"><a class="page-link" href="biblioteca.php?pagina=' . $paginas . '">Final</a></li>';
+    $paginacion .= '"><a class="page-link" href="biblioteca.php?pagina=' . $paginas .$envio_get. '">Final</a></li>';
 
 
 
     // FIN PAGINACION ===================================================================================================
 
-    
 
-    
+
+
 
 
 ?>
@@ -125,6 +178,7 @@ if (!verificar_sesion($conexion) == 1) {
         <meta charset="utf-8" />
         <title>Biblioteca - IESTP HUANTA</title>
         <?php include "include/header.php"; ?>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <style>
             .card-img-top {
                 width: 100%;
@@ -144,48 +198,80 @@ if (!verificar_sesion($conexion) == 1) {
                 <div class="page-content">
                     <div class="container-fluid">
                         <!-- start page title -->
+
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
-                                    <div class="card-body">
-                                        <form action="">
-                                            <div class="form-row">
-                                                <div class="col-md-12 content-align-center">
-                                                    <h4>Búsqueda</h4>
-                                                </div>
-                                                <div class="col-md-6 mb-3">
-                                                    <label>Por Título de Libro:</label>
-                                                    <input type="text" class="form-control" name="titulo">
-                                                </div>
-                                                <div class="col-md-6 mb-3">
-                                                    <label>Por Autor:</label>
-                                                    <input type="text" class="form-control" name="autor">
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label>Por Temas:</label>
-                                                    <input type="text" class="form-control" name="temas">
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label>Programa de Estudios</label>
-                                                    <select name="programa_estudio" id="programa_estudio" class="form-control">
-                                                        <option value="todos">TODOS</option>
-                                                        <option value="1">DISEÑO Y PROGRAMACIÓN WEB</option>
-                                                        <option value="2">ENFERMERÍA TÉCNICA</option>
-                                                        <option value="3">INDUSTRIAS ALIMENTARIAS</option>
-                                                        <option value="4">MECATRÓNICA AUTOMOTRIZ</option>
-                                                        <option value="5">PRODUCCIÓN AGROPECUARIA</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-3 mb-3">
-                                                    <label for=""></label><br>
-                                                    <button class="btn btn-primary waves-effect waves-light" type="submit">Buscar</button>
+                                    <div id="accordion" class="custom-accordion mb-4">
+                                        <div class="card mb-0">
+                                            <div class="card-header" id="headingTwo">
+                                                <h5 class="m-0 font-size-15">
+                                                    <a class="collapsed d-block pt-2 pb-2 text-dark" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                        Búsqueda <span class="mdi mdi-chevron-down accordion-arrow"></span> <span class="float-right"><i class="mdi mdi-chevron-down accordion-arrow"></i></span>
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    <form action="" method="GET">
+                                                        <div class="form-row">
+                                                            <div class="col-md-12 content-align-center">
+                                                                <h4>Búsqueda</h4>
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <label>Por Título de Libro:</label>
+                                                                <input type="text" class="form-control" name="titulo" value="<?php echo $titulo; ?>">
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <label>Por Autor:</label>
+                                                                <input type="text" class="form-control" name="autor" value="<?php echo $autor; ?>">
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <label>Por Temas:</label>
+                                                                <input type="text" class="form-control" name="temas" value="<?php echo $temas; ?>">
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <label>Programa de Estudios</label>
+                                                                <select name="programa_estudio" id="programa_estudio_m" class="form-control" value="<?php echo $programa_estudio; ?>">
+                                                                    <option value="TODOS">TODOS</option>
+                                                                    <?php $b_carreras = buscarCarreras($conexion_sispa);
+                                                                    while ($r_b_carreras = mysqli_fetch_array($b_carreras)) { ?>
+                                                                        <option value="<?php echo $r_b_carreras['id']; ?>" <?php if($programa_estudio==$r_b_carreras['id']){ echo "selected";} ?>><?php echo $r_b_carreras['nombre']; ?></option>
+                                                                    <?php } ?>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label>Semestre</label>
+                                                                <select name="semestre" id="semestre_m" class="form-control" value="<?php echo $semestre; ?>">
+                                                                    <option value="TODOS">TODOS</option>
+                                                                    <?php
+                                                                    $b_semestre = buscarSemestre($conexion_sispa);
+                                                                    while ($r_b_semestre = mysqli_fetch_array($b_semestre)) { ?>
+                                                                        <option value="<?php echo $r_b_semestre['id']; ?>" <?php if($semestre==$r_b_semestre['id']){ echo "selected";} ?>><?php echo $r_b_semestre['descripcion']; ?></option>
+                                                                    <?php } ?>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label>Unidad Didáctica</label>
+                                                                <select name="unidad_didactica" id="unidad_didactica_m" class="form-control" value="<?php echo $unidad_didactica; ?>">
+                                                                    <option value="TODOS">TODOS</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-3 mb-3">
+                                                                <label for=""></label><br>
+                                                                <button class="btn btn-primary waves-effect waves-light" type="submit">Buscar</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
+                        <div id="contenido"></div>
                         <div class="container d-flex justify-content-center">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
@@ -199,14 +285,23 @@ if (!verificar_sesion($conexion) == 1) {
                         <div class="row">
                             <?php
                             while ($res_bus = mysqli_fetch_array($ejec_buscar)) {
+                                $b_programa = buscarCarrerasById($conexion_sispa, $res_bus['id_programa_estudio']);
+                                $r_b_programa = mysqli_fetch_array($b_programa);
+
+                                $b_semestre = buscarSemestreById($conexion_sispa, $res_bus['id_semestre']);
+                                $r_b_semestre = mysqli_fetch_array($b_semestre);
+
+                                $b_ud = buscarUdById($conexion_sispa, $res_bus['id_semestre']);
+                                $r_b_ud = mysqli_fetch_array($b_ud);
                             ?>
                                 <div class="card col-lg-3 col-md-4 col-sm-6 m-2">
                                     <!-- https://tecnoapuntes.com/tutoriales/tics/google/insertar-imagenes-desde-google-drive-en-una-pagina-web/ -->
-                                    <img class="card-img-top" src="https://drive.google.com/uc?export=view&id=<?php echo $res_bus['ruta_portada'] ?>">
+                                    <img class="card-img-top" src="https://drive.google.com/uc?export=view&id=<?php echo $res_bus['link_portada']; ?>">
                                     <div class="card-body">
                                         <h5 class="card-title" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;"><?php echo $res_bus['titulo']; ?></h5>
-                                        <p class="card-text"><?php echo $res_bus['id_programa_estudio']; ?></p>
-                                        <p class="card-text">Autor: Autor del libro</p>
+                                        <p class="card-text"><?php echo $r_b_programa['nombre'] . ' - ' . $r_b_semestre['descripcion']; ?></p>
+                                        <p class="card-text"><?php echo $r_b_ud['descripcion']; ?></p>
+                                        <p class="card-text">Autor: <?php echo $res_bus['autor']; ?></p>
                                         <center><a href="detalle.php" class="btn btn-info">Ver</a></center>
                                     </div>
                                 </div>
@@ -239,6 +334,39 @@ if (!verificar_sesion($conexion) == 1) {
 
 
         <?php include "include/pie_scripts.php"; ?>
+
+        <script type="text/javascript">
+            
+            $(document).ready(function() {
+                
+                $('#programa_estudio_m').change(function() {
+                    listar_uds();
+                });
+                $('#semestre_m').change(function() {
+                    listar_uds();
+                });
+                listar_uds();
+            })
+        </script>
+        <script type="text/javascript">
+            function listar_uds() {
+                var carr = $('#programa_estudio_m').val();
+                var sem = $('#semestre_m').val();
+                var uddd = '<?php echo $unidad_didactica; ?>';
+                $.ajax({
+                    type: "POST",
+                    url: "include/listar_ud.php",
+                    data: {
+                        id_pe: carr,
+                        id_sem: sem,
+                        id_ud: uddd
+                    },
+                    success: function(r) {
+                        $('#unidad_didactica_m').html(r);
+                    }
+                });
+            }
+        </script>
 
     </body>
 

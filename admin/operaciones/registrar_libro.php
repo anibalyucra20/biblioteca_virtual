@@ -1,6 +1,7 @@
 <?php
 include "../../include/conexion.php";
 
+
 $titulo = $_POST['titulo'];
 $autor = $_POST['autor'];
 $editorial = $_POST['editorial'];
@@ -14,7 +15,7 @@ $id_semestre = $_POST['id_semestre'];
 $id_unidad_didactica = $_POST['id_unidad_didactica'];
 
 
-$hoy = date("Y-m-d");
+$hoy = date("Y-m-d H:i:s");
 $nombre_archivos = $hoy . "_" . $titulo . "_" . $autor;
 // cargar archivos a google
 include '../../librerias/google-api/vendor/autoload.php';
