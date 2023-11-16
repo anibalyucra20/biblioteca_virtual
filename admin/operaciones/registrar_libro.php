@@ -5,7 +5,7 @@ include("../../include/conexion_sispa.php");
 include("../../include/busquedas.php");
 include("../../include/busquedas_sispa.php");
 include("../../include/funciones.php");
-include "../../verificar_sesion_admin_op.php";
+include("../../include/verificar_sesion_admin_op.php");
 
 if (!verificar_sesion($conexion) == 1) {
     echo "<script>

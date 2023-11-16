@@ -89,7 +89,7 @@ if (!verificar_sesion($conexion) == 1) {
                                         <tbody>
                                             <?php 
                                             $b_libros = buscar_libro($conexion);
-                                            $cont == 0 ;
+                                            $cont = 0 ;
                                             while ($r_b_libro = mysqli_fetch_array($b_libros)) {
                                                 $cont ++;
                                              ?>
