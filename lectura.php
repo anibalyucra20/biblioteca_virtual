@@ -68,7 +68,20 @@ if (!verificar_sesion($conexion) == 1) {
                                                 <div class="row">
                                                     <div class="col-md-2">
                                                         <input type="hidden" id="librodd" value="<?php echo $link_libro; ?>">
-                                                        <button type="button" class="btn btn-danger" id="btn_agregar"> Agregar a Favoritos <i class="fas fa-heart"></i></button>
+                                                        <?php
+                                                        $b_favorito = buscar_favoritosByidLibroUsuTipo($conexion, $r_b_libro['id'], $r_buscar_sesion['id_usuario'], $tipo_usuario);
+                                                        $cont = mysqli_num_rows($b_favorito);
+                                                        if ($cont > 0) {
+                                                            $color = "danger";
+                                                            $texto = "Quitar de Favoritos";
+                                                        } else {
+                                                            $color = "dark";
+                                                            $texto = "Agregar a Favoritos";
+                                                        }
+                                                        ?>
+                                                        <div id="mostrar_noti">
+                                                            <button type="button" class="btn btn-outline-<?php echo $color; ?> waves-effect waves-light" id="btn_agregar"> <?php echo $texto; ?> <i class="fas fa-heart"></i></button>
+                                                        </div>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <center>

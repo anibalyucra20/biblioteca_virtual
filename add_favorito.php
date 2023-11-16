@@ -36,19 +36,23 @@ if ($cont_favoritos>0) {
     $id_fav = $r_b_favoritos['id'];
     $consulta = "DELETE FROM libros_favoritos WHERE id='$id_fav'";
     $delete = mysqli_query($conexion,$consulta);
+    $color = "dark";
+    $texto = "Agregar a Favoritos";
+    echo '<button type="button" class="btn btn-outline-'.$color.' waves-effect waves-light" id="btn_agregar"> '.$texto.' <i class="fas fa-heart"></i></button>
+    <div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
+<strong>Eliminado de Favoritos </strong>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">×</span>
+</button>
+</div>';
 
-    $c_registrar = "INSERT INTO libros_favoritos (id_usuario, tipo_usuario, id_libro, fecha_hora) VALUES ('$id_usuario','$tipo_usuario','$id_libro','$fecha_hora')";
-    $registrar = mysqli_query($conexion,$c_registrar);
 }else{
+    $color = "danger";
+    $texto = "Quitar de Favoritos";
     $c_registrar = "INSERT INTO libros_favoritos (id_usuario, tipo_usuario, id_libro, fecha_hora) VALUES ('$id_usuario','$tipo_usuario','$id_libro','$fecha_hora')";
     $registrar = mysqli_query($conexion,$c_registrar);
-}
-
-
-
-
-
-echo '<div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+    echo '<button type="button" class="btn btn-outline-'.$color.' waves-effect waves-light" id="btn_agregar"> '.$texto.' <i class="fas fa-heart"></i></button>
+    <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
 <strong>Agregado a Favoritos</strong>
 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">×</span>
@@ -56,14 +60,10 @@ echo '<div class="alert alert-success alert-dismissible fade show mb-0" role="al
 </div>';
 
 
+}
 
 
 
 
 
-
-
-
-
-?>
 

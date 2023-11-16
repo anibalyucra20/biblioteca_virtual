@@ -84,10 +84,24 @@ if (!verificar_sesion($conexion) == 1) {
                                                 <br>
                                                 <br>
                                                 <center>
-                                                    <button type="button" class="btn btn-danger" id="btn_agregar"><i class="fas fa-heart"></i></button>
-                                                    <input type="hidden" id="librodd" value="<?php echo $link_libro; ?>">
-                                                    <a href="lectura.php?libro=<?php echo $link_libro; ?>" class="btn btn-info">Leer Libro</a>
-                                                    <div id="mostrar_noti"></div>
+                                                    <?php
+                                                    $b_favorito = buscar_favoritosByidLibroUsuTipo($conexion, $r_b_libro['id'], $r_buscar_sesion['id_usuario'], $tipo_usuario);
+                                                    $cont = mysqli_num_rows($b_favorito);
+                                                    if ($cont > 0) {
+                                                        $color = "danger";
+                                                        $texto = "Quitar de Favoritos";
+                                                    } else {
+                                                        $color = "dark";
+                                                        $texto = "Agregar a Favoritos";
+                                                    }
+                                                    ?>
+                                                    <div class="row">
+                                                        <div class="col-md-6" id="mostrar_noti">
+                                                            <button type="button" class="btn btn-outline-<?php echo $color; ?> waves-effect waves-light" id="btn_agregar"> <?php echo $texto; ?> <i class="fas fa-heart"></i></button>
+                                                        </div>
+                                                        <input type="hidden" id="librodd" value="<?php echo $link_libro; ?>">
+                                                        <a href="lectura.php?libro=<?php echo $link_libro; ?>" class="btn btn-success">Leer Libro</a>
+                                                    </div>
                                                 </center>
                                             </div>
                                             <div class="col-md-8 mb-3">

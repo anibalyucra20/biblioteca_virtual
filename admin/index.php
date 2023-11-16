@@ -1,5 +1,42 @@
+<?php
+session_start();
+include("../include/conexion.php");
+include("../include/conexion_sispa.php");
+include("../include/busquedas.php");
+include("../include/busquedas_sispa.php");
+include("../include/funciones.php");
+include("../include/verificar_sesion_admin.php");
+
+if (!verificar_sesion($conexion) == 1) {
+    echo "<script>
+                  alert('Error Usted no cuenta con permiso para acceder a esta página');
+                  window.location.replace('../index.php');
+              </script>";
+} else {
+
+    $buscar_sesion = buscar_sesion($conexion, $_SESSION['id_sesion_biblioteca']);
+    $r_buscar_sesion = mysqli_fetch_array($buscar_sesion);
+    $id_usuario = $r_buscar_sesion['id_usuario'];
+
+    if ($r_buscar_sesion['tipo_acceso'] == 'docente') {
+        $b_usuario = buscarDocenteById($conexion_sispa, $r_buscar_sesion['id_usuario']);
+        $tipo_usuario = "docente";
+    } elseif ($r_buscar_sesion['tipo_acceso']) {
+        //este acceso es temporal, deshabilitar el acceso a estudiantes
+        $b_usuario = buscarEstudianteById($conexion_sispa, $r_buscar_sesion['id_usuario']);
+        $tipo_usuario = "estudiante";
+    } else {
+        echo "<script>
+                  alert('Error Usted no cuenta con permiso para acceder a esta página');
+                  window.location.replace('../index.php');
+              </script>";
+    }
+    $r_b_usuario = mysqli_fetch_array($b_usuario);
+
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8" />
@@ -35,11 +72,13 @@
                                     <div class="row d-flex align-items-center mb-4">
                                         <div class="col-8">
                                             <h2 class="d-flex align-items-center mb-0">
-                                                189
+                                                <?php 
+                                                $b_libros = buscar_libro($conexion); 
+                                                echo mysqli_num_rows($b_libros); ?> 
                                             </h2>
                                         </div>
                                         <div class="col-4 text-right">
-                                            <a href="">Ver</a>
+                                            <a href="libros.php"> Ver</a>
                                         </div>
                                     </div>
                                 </div>
@@ -55,7 +94,7 @@
                                     <div class="row d-flex align-items-center mb-4">
                                         <div class="col-8">
                                             <h2 class="d-flex align-items-center mb-0">
-                                                189
+                                                <?php echo date('Y-m-d'); ?>
                                             </h2>
                                         </div>
                                         <div class="col-4 text-right">
@@ -75,7 +114,7 @@
                                     <div class="row d-flex align-items-center mb-4">
                                         <div class="col-8">
                                             <h2 class="d-flex align-items-center mb-0">
-                                                189
+                                            <?php echo date('Y-m-d'); ?>
                                             </h2>
                                         </div>
                                         <div class="col-4 text-right">
@@ -95,7 +134,7 @@
                                     <div class="row d-flex align-items-center mb-4">
                                         <div class="col-8">
                                             <h2 class="d-flex align-items-center mb-0">
-                                                189
+                                            <?php echo date('Y-m-d'); ?>
                                             </h2>
                                         </div>
                                         <div class="col-4 text-right">
@@ -133,3 +172,5 @@
 </body>
 
 </html>
+
+<?php }

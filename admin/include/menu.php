@@ -16,14 +16,14 @@
             <div class="dropdown d-inline-block ml-2">
                 <button type="button" class="btn header-item waves-effect waves-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle header-profile-user" src="../images/no-image.jpeg" alt="Header Avatar">
-                    <span class="d-none d-sm-inline-block ml-1">Usuario</span>
+                    <span class="d-none d-sm-inline-block ml-1"><?php echo $r_b_usuario['apellidos_nombres']; ?></span>
                     <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="#">
-                        <span>Cambiar Contraseña</span>
+                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="../index.php">
+                        <span>Cambiar a Biblioteca</span>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="#">
+                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="../include/cerrar_sesion.php">
                         <span>Cerrar Sesión</span>
                     </a>
                 </div>
@@ -39,7 +39,7 @@
             <div class="collapse navbar-collapse" id="topnav-menu-content">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">
+                        <a class="nav-link" href="../admin/">
                             <i class="fas fa-home"></i>Inicio
                         </a>
                     </li>
