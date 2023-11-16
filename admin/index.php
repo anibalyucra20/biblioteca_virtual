@@ -45,7 +45,7 @@ if (!verificar_sesion($conexion) == 1) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="../pp/assets/images/favicon.ico">
+    <link rel="shortcut icon" href="../images/favicon.ico">
 
     <!-- App css -->
     <link href="../pp/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />

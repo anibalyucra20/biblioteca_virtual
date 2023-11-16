@@ -2,10 +2,10 @@
     <div class="navbar-header">
         <!-- LOGO -->
         <div class="navbar-brand-box d-flex align-items-left">
-            <a href="#" class="logo">
-                <i class="mdi mdi-album"></i>
+        <a href="index.php" class="logo">
+                <img src="../images/logo.png" alt="" width="90px">
                 <span>
-                    Biblioteca admin
+                    Biblioteca Virtual IESTP HUANTA
                 </span>
             </a>
             <button type="button" class="btn btn-sm mr-2 font-size-16 d-lg-none header-item waves-effect waves-light" data-toggle="collapse" data-target="#topnav-menu-content">

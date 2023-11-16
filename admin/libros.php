@@ -44,7 +44,7 @@ if (!verificar_sesion($conexion) == 1) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="../pp/assets/images/favicon.ico">
+    <link rel="shortcut icon" href="../images/favicon.ico">
 
     <!-- Plugins css -->
     <link href="../plugins/datatables/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
