@@ -131,7 +131,7 @@ if (!verificar_sesion($conexion) == 1) {
     if ($cont > 0) {
 
         $total_lib = $cont;
-        $articulos_por_pagina = 8;
+        $articulos_por_pagina = 10;
         $paginas = ceil($total_lib / $articulos_por_pagina);
 
         $iniciar = ($_GET['pagina'] - 1) * $articulos_por_pagina;
