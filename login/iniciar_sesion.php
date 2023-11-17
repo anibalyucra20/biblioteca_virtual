@@ -18,7 +18,7 @@ $cont_estudiante = mysqli_num_rows($b_estudiante);
 $r_b_estudiante = mysqli_fetch_array($b_estudiante);
 
 
-if ($cont_docente>0 ) {
+if ($cont_docente>0) {
 	if (password_verify($pass, $r_b_docente['password'])) {
 		$id_docente = $r_b_docente['id'];
 	$cargo_docente = $r_b_docente['id_cargo'];
@@ -60,12 +60,6 @@ if ($cont_docente>0 ) {
 }elseif($cont_estudiante>0) {
 	if (password_verify($pass, $r_b_estudiante['password'])) {
 		$id_estudiante = $r_b_estudiante['id'];
-	if ($r_b_estudiante['activo'] != 1) {
-		echo "<script>
-                alert('Error, Usted no se encuentra activo en el sistema, Por Favor Contacte con el Administrador');
-                window.location.replace('../login/');
-    		</script>";
-	}else {
 		session_start();
 		$llave = generar_llave();
 		$id_sesion = reg_sesion($conexion, $id_estudiante,'estudiante', $llave);
@@ -80,7 +74,7 @@ if ($cont_docente>0 ) {
 				window.location.replace('../login/');
     		</script>";
 			}
-	}
+	
 	}else {
 		echo "<script>
                 alert('Contraseña incorrecta');
