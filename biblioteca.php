@@ -326,7 +326,7 @@ if (!verificar_sesion($conexion) == 1) {
                                 </nav>
 
                             </div>
-                            <div class="row">
+                            <div class="row container-fluid">
                                 <?php
                                 while ($res_bus = mysqli_fetch_array($ejec_buscar)) {
                                     $b_programa = buscarCarrerasById($conexion_sispa, $res_bus['id_programa_estudio']);
