@@ -8,7 +8,7 @@
             </div>
             <div class="col-md-6">
                 <div class="text-right d-none d-lg-block">
-                    Desarrollador Por Anibal Yucra Curo
+                    Desarrollado Por Anibal Yucra Curo
                 </div>
             </div>
         </div>
