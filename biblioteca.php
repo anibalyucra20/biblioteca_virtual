@@ -326,7 +326,8 @@ if (!verificar_sesion($conexion) == 1) {
                                 </nav>
 
                             </div>
-                            <div class="row container-fluid">
+                            <div class="container-fluid">
+                            <div class="row">
                                 <?php
                                 while ($res_bus = mysqli_fetch_array($ejec_buscar)) {
                                     $b_programa = buscarCarrerasById($conexion_sispa, $res_bus['id_programa_estudio']);
@@ -349,6 +350,7 @@ if (!verificar_sesion($conexion) == 1) {
                                         </div>
                                     </div>
                                 <?php } ?>
+                            </div>
                             </div>
                             <!-- end page title -->
                             <div class="container d-flex justify-content-center">
