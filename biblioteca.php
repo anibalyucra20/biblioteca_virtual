@@ -131,7 +131,7 @@ if (!verificar_sesion($conexion) == 1) {
     if ($cont > 0) {
 
         $total_lib = $cont;
-        $articulos_por_pagina = 10;
+        $articulos_por_pagina = 8;
         $paginas = ceil($total_lib / $articulos_por_pagina);
 
         $iniciar = ($_GET['pagina'] - 1) * $articulos_por_pagina;
@@ -338,7 +338,7 @@ if (!verificar_sesion($conexion) == 1) {
                                     $b_ud = buscarUdById($conexion_sispa, $res_bus['id_unidad_didactica']);
                                     $r_b_ud = mysqli_fetch_array($b_ud);
                                 ?>
-                                    <div class="card col-lg-2 col-md-4 col-sm-6 m-4">
+                                    <div class="card col-lg-2 col-md-3 col-sm-4 m-4">
                                         <img class="card-img-top" src="https://drive.google.com/uc?export=view&id=<?php echo $res_bus['link_portada']; ?>">
                                         <div class="card-body">
                                             <h5 class="card-title" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;"><?php echo $res_bus['titulo']; ?></h5>
