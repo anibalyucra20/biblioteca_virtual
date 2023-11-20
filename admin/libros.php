@@ -109,11 +109,15 @@ if (!verificar_sesion($conexion) == 1) {
                                                     echo $r_b_semestre['descripcion'];
                                                 ?></td>
                                                 <td><?php
-                                                    $b_ud = buscarUdById($conexion_sispa, $r_b_libro['id_semestre']);
+                                                    $b_ud = buscarUdById($conexion_sispa, $r_b_libro['id_unidad_didactica']);
                                                     $r_b_ud = mysqli_fetch_array($b_ud);
                                                     echo $r_b_ud['descripcion'];
                                                 ?></td>
-                                                <td><button type="button" class="btn btn-success"> Editar</button> <button type="button" class="btn btn-primary">Ver</button></td>
+                                                <td>
+                                                    <a href="editar_libro.php?libro=<?php echo $r_b_libro['link_portada']; ?>" class="btn btn-success">Editar</a>
+                                                     
+                                                    <button type="button" class="btn btn-primary">Ver</button>
+                                                </td>
                                             </tr>
                                             <?php } ?>
                                         </tbody>

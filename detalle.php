@@ -80,7 +80,7 @@ if (!verificar_sesion($conexion) == 1) {
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-4 mb-3">
-                                                <img class="card-img-top img-fluid" src="https://drive.google.com/uc?export=view&id=<?php echo $r_b_libro['link_portada']; ?>" alt="Card image cap">
+                                                <img class="" src="https://drive.google.com/uc?export=view&id=<?php echo $r_b_libro['link_portada']; ?>" alt="Card image cap" width="100%">
                                                 <br>
                                                 <br>
                                                 <center>

@@ -84,8 +84,8 @@ if (!verificar_sesion($conexion) == 1) {
                                 $b_ud = buscarUdById($conexion_sispa, $r_b_libro['id_unidad_didactica']);
                                 $r_b_ud = mysqli_fetch_array($b_ud);
                             ?>
-                                <div class="card col-lg-3 col-md-3 col-sm-6 m-0">
-                                    <img class="card-img-top fluid" src="https://drive.google.com/uc?export=view&id=<?php echo $r_b_libro['link_portada']; ?>">
+                                <div class="card col-lg-3 col-md-3 col-sm-6 mb-2">
+                                    <img class=" my-2" src="https://drive.google.com/uc?export=view&id=<?php echo $r_b_libro['link_portada']; ?>" width="100%" height="500px">
                                     <div class="card-body">
                                         <h5 class="card-title" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;"><?php echo $r_b_libro['titulo']; ?></h5>
                                         <p class="card-text"><?php echo $r_b_programa['nombre'] . ' - S-' . $r_b_semestre['descripcion']; ?></p>
@@ -119,8 +119,8 @@ if (!verificar_sesion($conexion) == 1) {
                                     $b_ud = buscarUdById($conexion_sispa, $r_b_libro['id_unidad_didactica']);
                                     $r_b_ud = mysqli_fetch_array($b_ud);
                             ?>
-                                <div class="card col-lg-3 col-md-3 col-sm-6 m-0">
-                                    <img class="card-img-top fluid" src="https://drive.google.com/uc?export=view&id=<?php echo $r_b_libro['link_portada']; ?>">
+                                <div class="card col-lg-3 col-md-3 col-sm-6 mb-2">
+                                    <img class=" my-2" src="https://drive.google.com/uc?export=view&id=<?php echo $r_b_libro['link_portada']; ?>" width="100%" height="500px">
                                     <div class="card-body">
                                         <h5 class="card-title" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;"><?php echo $r_b_libro['titulo']; ?></h5>
                                         <p class="card-text"><?php echo $r_b_programa['nombre'] . ' - S-' . $r_b_semestre['descripcion']; ?></p>

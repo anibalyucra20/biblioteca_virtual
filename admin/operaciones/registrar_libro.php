@@ -117,7 +117,7 @@ if (!verificar_sesion($conexion) == 1) {
     if (mysqli_query($conexion, $consulta)) {
         echo "<script>
 			        alert('Se realizó el registro con Éxito');
-                    window.location= '../registro_libro.php';
+                    window.location= '../libros.php';
 		            </script>
 		            ";
     } else {
