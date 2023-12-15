@@ -89,7 +89,7 @@ if (!verificar_sesion($conexion) == 1) {
                             <div class="card">
                                 <div class="card-body">
                                     <div class="mb-4">
-                                        <h5 class="card-title mb-0">Reporte de Libros</h5>
+                                        <h5 class="card-title mb-0">Libros</h5>
                                     </div>
                                     <div class="row d-flex align-items-center mb-4">
                                         <div class="col-8">
@@ -98,7 +98,7 @@ if (!verificar_sesion($conexion) == 1) {
                                             </h2>
                                         </div>
                                         <div class="col-4 text-right">
-                                             <a href="">Generar</a>
+                                             <a href="libros.php">Ver</a>
                                         </div>
                                     </div>
                                 </div>
@@ -109,7 +109,7 @@ if (!verificar_sesion($conexion) == 1) {
                             <div class="card">
                                 <div class="card-body">
                                     <div class="mb-4">
-                                        <h5 class="card-title mb-0">Reporte de Lectura</h5>
+                                        <h5 class="card-title mb-0">Lecturas</h5>
                                     </div>
                                     <div class="row d-flex align-items-center mb-4">
                                         <div class="col-8">
@@ -118,7 +118,7 @@ if (!verificar_sesion($conexion) == 1) {
                                             </h2>
                                         </div>
                                         <div class="col-4 text-right">
-                                             <a href="">Generar</a>
+                                             <a href="lecturas.php">Ver</a>
                                         </div>
                                     </div>
                                 </div>
@@ -129,7 +129,7 @@ if (!verificar_sesion($conexion) == 1) {
                             <div class="card">
                                 <div class="card-body">
                                     <div class="mb-4">
-                                        <h5 class="card-title mb-0">Reporte de Accesos</h5>
+                                        <h5 class="card-title mb-0">Accesos</h5>
                                     </div>
                                     <div class="row d-flex align-items-center mb-4">
                                         <div class="col-8">
@@ -138,7 +138,7 @@ if (!verificar_sesion($conexion) == 1) {
                                             </h2>
                                         </div>
                                         <div class="col-4 text-right">
-                                             <a href="">Generar</a>
+                                             <a href="accesos.php">Ver</a>
                                         </div>
                                     </div>
                                 </div>

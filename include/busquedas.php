@@ -3,6 +3,10 @@ function buscar_sesion($conexion, $id_sesion){
     $sql = "SELECT * FROM sesiones WHERE id='$id_sesion'";
 	return mysqli_query($conexion, $sql);
 }
+function buscar_sesiones($conexion){
+    $sql = "SELECT * FROM sesiones";
+	return mysqli_query($conexion, $sql);
+}
 
 
 
@@ -23,6 +27,10 @@ function buscar_libroByLinkPortada($conexion, $link){
 
 
 //-------------------------LECTURAS------------------------------
+function buscar_lecturas($conexion){
+    $sql = "SELECT * FROM lecturas ";
+    return mysqli_query($conexion, $sql);
+}
 function buscar_lecturasByidLibroUsuTipo($conexion, $id_libro, $usuario, $tipo_usu){
     $sql = "SELECT * FROM lecturas WHERE id_libro='$id_libro' AND id_usuario='$usuario' AND tipo_usuario='$tipo_usu'";
     return mysqli_query($conexion, $sql);
