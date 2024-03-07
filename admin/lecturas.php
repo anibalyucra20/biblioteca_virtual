@@ -109,7 +109,7 @@ if (!verificar_sesion($conexion) == 1) {
                                                 <td><?php echo $rb_sesion['tipo_acceso']; ?></td>
                                                 <td><?php echo $r_b_lecturas['fecha_hora']; ?></td>
                                                 <td><?php echo $rb_libro['titulo']; ?></td>
-                                                <td><iframe src="https://drive.google.com/file/d/<?php echo $r_b_libro['link_portada']; ?>/preview" frameborder="none" style="width:80%; height:100px; overflow: hidden;" scrolling="no"></iframe></td>
+                                                <td><iframe src="https://drive.google.com/file/d/<?php echo $rb_libro['link_portada']; ?>/preview" frameborder="none" style="width:80%; height:100px; overflow: hidden;" scrolling="no"></iframe></td>
                                             </tr>
                                             <?php } ?>
                                         </tbody>
