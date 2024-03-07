@@ -85,8 +85,8 @@ if (!verificar_sesion($conexion) == 1) {
                                 $r_b_ud = mysqli_fetch_array($b_ud);
                             ?>
                                 <div class="card col-lg-3 col-md-3 col-sm-6 mb-2">
-                                    <!--<img class="my-2" src="https://drive.google.com/uc?export=view&id=1VRIuTHH5N3wgecP4o8wvB6YyEXumNECv" width="100%" height="500px">https://drive.google.com/file/d/1l_OW56Qc7h_X1ekH83yI7MWo1_Pw9Qcl/view?usp=drive_link-->
-                                    <iframe class="my-2" src="https://drive.google.com/uc?export=view&id=1l_OW56Qc7h_X1ekH83yI7MWo1_Pw9Qcl" width="100%" height="100%"></iframe>
+                                    <!--<img class=" my-2" src="https://drive.google.com/uc?export=view&id=1VRIuTHH5N3wgecP4o8wvB6YyEXumNECv" width="100%" height="500px">https://drive.google.com/file/d/1l_OW56Qc7h_X1ekH83yI7MWo1_Pw9Qcl/view?usp=drive_link-->
+                                    <iframe src="https://drive.google.com/uc?export=view&id=11M3ZF89f4StAs6wr1nFhYezAz7NSknZ7" width="100%" height="100%"></iframe>
                                     <div class="card-body">
                                         <h5 class="card-title" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;"><?php echo $r_b_libro['titulo']; ?></h5>
                                         <p class="card-text"><?php echo $r_b_programa['nombre'] . ' - S-' . $r_b_semestre['descripcion']; ?></p>
