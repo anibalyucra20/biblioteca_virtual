@@ -82,16 +82,6 @@ if (!verificar_sesion($conexion) == 1) {
                                                 <div class="col-md-12 mb-3">
                                                     <label for="validationCustom01">Portada :</label>
                                                     <iframe src="https://drive.google.com/file/d/<?php echo $r_b_libro['link_portada']; ?>/preview" frameborder="none" style="width:30%; height:400px; overflow: hidden;" scrolling="no"></iframe>
-                                                    <select name="portada" id="portada" class="form-control">
-                                                        <option value=""></option>
-                                                        <?php
-                                                        $b_semestre = buscarSemestre($conexion_sispa);
-                                                        while ($r_b_semestre = mysqli_fetch_array($b_semestre)) { ?>
-                                                            <option value="<?php echo $r_b_semestre['id']; ?>" <?php if ($r_b_semestre['id'] == $r_b_libro['id_semestre']) {
-                                                                                                                    echo "selected";
-                                                                                                                } ?>><?php echo $r_b_semestre['descripcion']; ?></option>
-                                                        <?php } ?>
-                                                    </select>
                                                 </div>
                                                 <div class="col-md-12 mb-3">
                                                     <label for="validationCustom01">Programa de Estudios :</label>
