@@ -19,6 +19,10 @@ function buscar_libroById($conexion, $id){
     $sql = "SELECT * FROM libros WHERE id='$id'";
     return mysqli_query($conexion, $sql);
 }
+function buscar_libroByIdPE($conexion, $id_pe){
+    $sql = "SELECT * FROM libros WHERE id_programa_estudio='$id_pe'";
+    return mysqli_query($conexion, $sql);
+}
 function buscar_libroByLinkPortada($conexion, $link){
     $sql = "SELECT * FROM libros WHERE link_portada = '$link'";
     return 
