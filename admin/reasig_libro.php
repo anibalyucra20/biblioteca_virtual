@@ -81,7 +81,7 @@ if (!verificar_sesion($conexion) == 1) {
                                             <div class="form-row">
                                                 <div class="col-md-12 mb-3">
                                                     <label for="validationCustom01">Portada :</label>
-                                                    <iframe src="https://drive.google.com/file/d/<?php echo $r_b_libro['link_portada']; ?>/preview" frameborder="none" style="width:80%; height:200px; overflow: hidden;" scrolling="no"></iframe>
+                                                    <iframe src="https://drive.google.com/file/d/<?php echo $r_b_libro['link_portada']; ?>/preview" frameborder="none" style="width:30%; height:200px; overflow: hidden;" scrolling="no"></iframe>
                                                     <select name="portada" id="portada" class="form-control">
                                                         <option value=""></option>
                                                         <?php
