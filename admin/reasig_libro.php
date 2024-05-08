@@ -61,7 +61,7 @@ if (!verificar_sesion($conexion) == 1) {
         <!-- Begin page -->
         <div id="layout-wrapper">
             <div class="main-content">
-                <?php include "include/menu.php"; ?>
+                <?php include "include/mennu.php"; ?>
                 <div class="page-content">
                     <div class="container-fluid">
                         <!-- start page title -->
