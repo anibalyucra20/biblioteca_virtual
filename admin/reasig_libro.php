@@ -137,7 +137,7 @@ if (!verificar_sesion($conexion) == 1) {
                                                 </div>
                                                 <div class="col-md-12 mb-3">
                                                     <label for="validationCustom02">Categoria :</label>
-                                                    <input type="text" class="form-control" name="categoria" required value="<?php echo $r_b_libro['tipo_libro']; ?>" readonly>
+                                                    <input type="text" class="form-control" name="categoria" required value="<?php echo $r_b_libro['tipo_libro']; ?>">
                                                 </div>
                                             </div>
 

@@ -18,8 +18,9 @@ if (!verificar_sesion($conexion) == 1) {
     $id_libro = $_POST['data'];
     $id_semestre = $_POST['id_semestre'];
     $id_unidad_didactica = $_POST['id_unidad_didactica'];
+    $categoria = $_POST['categoria'];
 
-    $consulta = "UPDATE libros SET id_semestre='$id_semestre',id_unidad_didactica='$id_unidad_didactica',id_sesion='$id_sesion' WHERE id='$id_libro'";
+    $consulta = "UPDATE libros SET id_semestre='$id_semestre',id_unidad_didactica='$id_unidad_didactica',tipo_libro='$categoria',id_sesion='$id_sesion' WHERE id='$id_libro'";
     if (mysqli_query($conexion, $consulta)) {
         echo "<script>
 			        alert('Actualizado Correctamente');
