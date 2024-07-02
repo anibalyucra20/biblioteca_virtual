@@ -74,7 +74,7 @@ if (!verificar_sesion($conexion) == 1) {
                                         <thead>
                                             <tr>
                                                 <th>Nro</th>
-                                                <th>Imagen</th>
+                                                <!--<th>Imagen</th>-->
                                                 <th>Titulo</th>
                                                 <th>Autor</th>
                                                 <th>Programa de Estudios</th>
@@ -92,7 +92,7 @@ if (!verificar_sesion($conexion) == 1) {
                                              ?>
                                             <tr>
                                                 <td><?php echo $cont; ?></td>
-                                                <td><iframe src="https://drive.google.com/file/d/<?php echo $r_b_libro['link_portada']; ?>/preview" frameborder="none" style="width:80%; height:100px; overflow: hidden;" scrolling="no"></iframe></td>
+                                                <!--<td><iframe src="https://drive.google.com/file/d/<?php echo $r_b_libro['link_portada']; ?>/preview" frameborder="none" style="width:80%; height:100px; overflow: hidden;" scrolling="no"></iframe></td>-->
                                                 <td><?php echo $r_b_libro['titulo']; ?></td>
                                                 <td><?php echo $r_b_libro['autor']; ?></td>
                                                 <td><?php
