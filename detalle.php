@@ -80,9 +80,6 @@ if (!verificar_sesion($conexion) == 1) {
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-4 mb-3">
-                                            <iframe src="https://drive.google.com/file/d/<?php echo $r_b_libro['link_portada']; ?>/preview" frameborder="none" style="width:100%; height:500px; overflow: hidden;" scrolling="no"></iframe>
-                                                <br>
-                                                <br>
                                                 <center>
                                                     <?php
                                                     $b_favorito = buscar_favoritosByidLibroUsuTipo($conexion, $r_b_libro['id'], $r_buscar_sesion['id_usuario'], $tipo_usuario);
@@ -103,6 +100,10 @@ if (!verificar_sesion($conexion) == 1) {
                                                         <a href="lectura.php?libro=<?php echo $link_libro; ?>" class="btn btn-success">Leer Libro</a>
                                                     </div>
                                                 </center>
+                                                <iframe src="https://drive.google.com/file/d/<?php echo $r_b_libro['link_portada']; ?>/preview" frameborder="none" style="width:100%; height:500px; overflow: hidden;" scrolling="no"></iframe>
+                                                <br>
+                                                <br>
+
                                             </div>
                                             <div class="col-md-8 mb-3">
                                                 <h4><?php echo $r_b_libro['titulo']; ?></h4>
