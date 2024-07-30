@@ -98,7 +98,7 @@ if (!verificar_sesion($conexion) == 1) {
                                                 }else {
                                                     $b_usuario = buscarEstudianteById($conexion_sispa,$r_b_sesiones['id_usuario']);
                                                     $r_b_usuario = mysqli_fetch_array($b_usuario);
-                                                    $buscar_pe = buscarCarrerasById($conexion_sispa, $r_b_usuario['id_programa_estudio']);
+                                                    $buscar_pe = buscarCarrerasById($conexion_sispa, $r_b_usuario['id_programa_estudios']);
                                                     $r_b_pe = mysqli_fetch_array($buscar_pe);
                                                 }
                                              ?>
