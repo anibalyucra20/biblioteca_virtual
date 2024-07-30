@@ -78,6 +78,7 @@ if (!verificar_sesion($conexion) == 1) {
                                                 <th>Nro</th>
                                                 <th>Usuario</th>
                                                 <th>Tipo de Usuario</th>
+                                                <th>Programa de Estudio</th>
                                                 <th>Fecha y Hora de Ingreso</th>
                                                 <th>Fecha y Hora de Salida</th>
                                                 
@@ -91,15 +92,21 @@ if (!verificar_sesion($conexion) == 1) {
                                                 $cont ++;
                                                 if ($r_b_sesiones['tipo_acceso']=='docente') {
                                                     $b_usuario = buscarDocenteById($conexion_sispa, $r_b_sesiones['id_usuario']);
+                                                    $r_b_usuario = mysqli_fetch_array($b_usuario);
+                                                    $buscar_pe = buscarCarrerasById($conexion_sispa, $r_b_usuario['id_programa_estudio']);
+                                                    $r_b_pe = mysqli_fetch_array($buscar_pe);
                                                 }else {
                                                     $b_usuario = buscarEstudianteById($conexion_sispa,$r_b_sesiones['id_usuario']);
+                                                    $r_b_usuario = mysqli_fetch_array($b_usuario);
+                                                    $buscar_pe = buscarCarrerasById($conexion_sispa, $r_b_usuario['id_programa_estudio']);
+                                                    $r_b_pe = mysqli_fetch_array($buscar_pe);
                                                 }
-                                                $r_b_usuario = mysqli_fetch_array($b_usuario);
                                              ?>
                                             <tr>
                                                 <td><?php echo $cont; ?></td>
                                                 <td><?php echo $r_b_usuario['apellidos_nombres']; ?></td>
                                                 <td><?php echo $r_b_sesiones['tipo_acceso']; ?></td>
+                                                <td><?php echo $r_b_pe['nombre']; ?></td>
                                                 <td><?php echo $r_b_sesiones['fecha_hora_inicio']; ?></td>
                                                 <td><?php echo $r_b_sesiones['fecha_hora_fin']; ?></td>
                                             </tr>
