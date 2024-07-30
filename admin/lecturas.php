@@ -98,10 +98,12 @@ if (!verificar_sesion($conexion) == 1) {
                                                     $b_usuario = buscarDocenteById($conexion_sispa, $rb_sesion['id_usuario']);
                                                     $r_b_usuario = mysqli_fetch_array($b_usuario);
                                                     $buscar_pe = buscarCarrerasById($conexion_sispa, $r_b_usuario['id_programa_estudio']);
+                                                    $r_b_pe = mysqli_fetch_array($buscar_pe);
                                                 }else {
                                                     $b_usuario = buscarEstudianteById($conexion_sispa,$rb_sesion['id_usuario']);
                                                     $r_b_usuario = mysqli_fetch_array($b_usuario);
                                                     $buscar_pe = buscarCarrerasById($conexion_sispa, $r_b_usuario['id_programa_estudios']);
+                                                    $r_b_pe = mysqli_fetch_array($buscar_pe);
                                                 }
 
                                                 $b_libro = buscar_libroById($conexion, $r_b_lecturas['id_libro']);
@@ -111,7 +113,7 @@ if (!verificar_sesion($conexion) == 1) {
                                                 <td><?php echo $cont; ?></td>
                                                 <td><?php echo $r_b_usuario['apellidos_nombres']; ?></td>
                                                 <td><?php echo $rb_sesion['tipo_acceso']; ?></td>
-                                                <td><?php echo $buscar_pe['nombre']; ?></td>
+                                                <td><?php echo $r_b_pe['nombre']; ?></td>
                                                 <td><?php echo $r_b_lecturas['fecha_hora']; ?></td>
                                                 <td><?php echo $rb_libro['titulo']; ?></td>
                                                 <!--<td><iframe src="https://drive.google.com/file/d/<?php echo $rb_libro['link_portada']; ?>/preview" frameborder="none" style="width:80%; height:100px; overflow: hidden;" scrolling="no"></iframe></td>-->
