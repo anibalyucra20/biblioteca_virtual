@@ -104,7 +104,7 @@ if (!verificar_sesion($conexion) == 1) {
                                                     <tr>
                                                         <td><?php echo $cont; ?></td>
                                                         <td><?php echo $r_b_estudiante['apellidos_nombres']; ?></td>
-                                                        <td>Docente</td>
+                                                        <td>Estudiante</td>
                                                         <td><?php echo $r_b_pe['nombre']; ?></td>
                                                     </tr>
                                                 <?php } ?>
