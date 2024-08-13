@@ -102,7 +102,7 @@ if (!verificar_sesion($conexion) == 1) {
                                             </h2>
                                         </div>
                                         <div class="col-4 text-right">
-                                             <a href="libros.php">Ver</a>
+                                             <a href="usuarios.php">Ver</a>
                                         </div>
                                     </div>
                                 </div>
