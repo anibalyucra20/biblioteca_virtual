@@ -79,7 +79,7 @@ if (!verificar_sesion($conexion) == 1) {
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                $b_docentes = buscarDocenteActivos($conexion);
+                                                $b_docentes = buscarDocenteActivos($conexion_sispa);
                                                 $cont = 0;
                                                 while ($r_b_docentes = mysqli_fetch_array($b_docentes)) {
                                                     $cont++;
@@ -94,7 +94,7 @@ if (!verificar_sesion($conexion) == 1) {
                                                     </tr>
                                                 <?php } ?>
                                                 <?php
-                                                $b_estudiante = buscarEstudiante($conexion);
+                                                $b_estudiante = buscarEstudiante($conexion_sispa);
                                                 $cont = 0;
                                                 while ($r_b_estudiante = mysqli_fetch_array($b_estudiante)) {
                                                     $cont++;
