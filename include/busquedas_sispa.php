@@ -30,6 +30,7 @@ function buscarEstudiante($conexion){
 	$sql = "SELECT * FROM estudiante";
 	return mysqli_query($conexion, $sql);
 }
+
 function buscarEstudianteById($conexion,$id){
 	$sql = "SELECT * FROM estudiante WHERE id='$id'";
 	return mysqli_query($conexion, $sql);
@@ -53,6 +54,10 @@ function buscarEstudianteByApellidosNombres_like($conexion,$pe,$dato){
 
 function buscarDocente($conexion){
 	$sql = "SELECT * FROM docente";
+	return mysqli_query($conexion, $sql);
+}
+function buscarDocenteActivos($conexion){
+	$sql = "SELECT * FROM docente WHERE activo=1";
 	return mysqli_query($conexion, $sql);
 }
 function buscarDocenteOrdesByApellidosNombres($conexion){

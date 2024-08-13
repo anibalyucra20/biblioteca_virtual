@@ -21,10 +21,6 @@ if (!verificar_sesion($conexion) == 1) {
     if ($r_buscar_sesion['tipo_acceso'] == 'docente') {
         $b_usuario = buscarDocenteById($conexion_sispa, $r_buscar_sesion['id_usuario']);
         $tipo_usuario = "docente";
-    } elseif ($r_buscar_sesion['tipo_acceso']) {
-        //este acceso es temporal, deshabilitar el acceso a estudiantes
-        $b_usuario = buscarEstudianteById($conexion_sispa, $r_buscar_sesion['id_usuario']);
-        $tipo_usuario = "estudiante";
     } else {
         echo "<script>
                   alert('Error Usted no cuenta con permiso para acceder a esta página');
