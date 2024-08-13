@@ -85,12 +85,20 @@ if (!verificar_sesion($conexion) == 1) {
                             <div class="card">
                                 <div class="card-body">
                                     <div class="mb-4">
-                                        <h5 class="card-title mb-0">Libros</h5>
+                                        <h5 class="card-title mb-0">Usuarios</h5>
                                     </div>
                                     <div class="row d-flex align-items-center mb-4">
                                         <div class="col-8">
                                             <h2 class="d-flex align-items-center mb-0">
-                                                <?php echo date('Y-m-d'); ?>
+                                                <?php 
+                                                $b_docentes = buscarDocenteActivos($conexion_sispa);
+                                                $cont_docente = mysqli_num_rows($b_docentes);
+
+                                                $b_estudiante = buscarEstudiante($conexion_sispa);
+                                                $cont_estudiante = mysqli_num_rows($b_estudiante);
+
+                                                echo $cont_docente + $cont_estudiante;
+                                                ?>
                                             </h2>
                                         </div>
                                         <div class="col-4 text-right">

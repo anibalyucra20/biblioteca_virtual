@@ -67,7 +67,7 @@ if (!verificar_sesion($conexion) == 1) {
                                 <div class="card">
                                     <div class="card-body">
 
-                                        <h4 class="card-title">Reporte de Lecturas</h4>
+                                        <h4 class="card-title">Usuarios Activos </h4>
                                         <table id="example" class="table dt-responsive " width="100%">
                                             <thead>
                                                 <tr>
