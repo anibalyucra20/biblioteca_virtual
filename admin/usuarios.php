@@ -95,7 +95,6 @@ if (!verificar_sesion($conexion) == 1) {
                                                 <?php } ?>
                                                 <?php
                                                 $b_estudiante = buscarEstudiante($conexion_sispa);
-                                                $cont = 0;
                                                 while ($r_b_estudiante = mysqli_fetch_array($b_estudiante)) {
                                                     $cont++;
                                                     $buscar_pe = buscarCarrerasById($conexion_sispa, $r_b_estudiante['id_programa_estudios']);
