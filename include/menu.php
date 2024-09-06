@@ -29,11 +29,11 @@
                     <span>Administración</span>
                 </a>
                 <?php } ?>
-                <?php if (($tipo_usuario == "docente")) { ?>
+                <!--<?php if (($tipo_usuario == "docente")) { ?>
                     <a class="dropdown-item d-flex align-items-center justify-content-between" href="admin/reasignar_libro.php">
                     <span>Reasignar Libros</span>
                 </a>
-                <?php } ?>
+                <?php } ?>-->
                 <a class="dropdown-item d-flex align-items-center justify-content-between" href="include/cerrar_sesion.php">
                     <span>Cerrar Sesión</span>
                 </a>
