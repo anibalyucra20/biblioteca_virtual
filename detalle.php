@@ -100,9 +100,9 @@ if (!verificar_sesion($conexion) == 1) {
                                                             <input type="hidden" id="librodd" value="<?php echo $link_libro; ?>">
                                                             <a href="lectura.php?libro=<?php echo $link_libro; ?>" class="btn btn-outline-success waves-effect waves-light col-12">Leer Libro</a>
                                                         </div>
-
                                                     </div>
                                                 </center>
+                                                <br>
                                                 <iframe src="https://drive.google.com/file/d/<?php echo $r_b_libro['link_portada']; ?>/preview" frameborder="none" style="width:100%; height:500px; overflow: hidden;" scrolling="no"></iframe>
                                                 <br>
                                                 <br>
