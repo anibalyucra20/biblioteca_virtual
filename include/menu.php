@@ -34,6 +34,9 @@
                     <span>Reasignar Libros</span>
                 </a>
                 <?php } ?>-->
+                <a class="dropdown-item d-flex align-items-center justify-content-between" href="perfil.php">
+                    <span>Mi Perfil</span>
+                </a>
                 <a class="dropdown-item d-flex align-items-center justify-content-between" href="include/cerrar_sesion.php">
                     <span>Cerrar Sesión</span>
                 </a>

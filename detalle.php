@@ -98,7 +98,7 @@ if (!verificar_sesion($conexion) == 1) {
                                                         </div>
                                                         <div class="col-md-6">
                                                             <input type="hidden" id="librodd" value="<?php echo $link_libro; ?>">
-                                                            <a href="lectura.php?libro=<?php echo $link_libro; ?>" class="btn btn-outline-success waves-effect waves-light col-12">Leer Libro</a>
+                                                            <a href="lectura.php?libro=<?php echo $link_libro; ?>" class="btn btn-outline-success waves-effect waves-light col-12">Leer Libro <i class="fas fa-book-open"></i></a>
                                                         </div>
                                                     </div>
                                                 </center>
