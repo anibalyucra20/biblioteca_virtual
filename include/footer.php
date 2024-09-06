@@ -3,12 +3,13 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="text-center text-lg-left">
-                    2023 © Biblioteca Virtual.
+                    <?php $anio = date("Y"); ?>
+                    <?php echo $anio; ?> © Biblioteca Virtual.
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="text-right d-none d-lg-block">
-                    Desarrollado Por Anibal Yucra Curo
+                    Instituto de Educación Superior "HUANTA"
                 </div>
             </div>
         </div>

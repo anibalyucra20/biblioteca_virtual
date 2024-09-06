@@ -94,10 +94,13 @@ if (!verificar_sesion($conexion) == 1) {
                                                     ?>
                                                     <div class="row">
                                                         <div class="col-md-6" id="mostrar_noti">
-                                                            <button type="button" class="btn btn-outline-<?php echo $color; ?> waves-effect waves-light" id="btn_agregar"> <?php echo $texto; ?> <i class="fas fa-heart"></i></button>
+                                                            <button type="button" class="btn btn-outline-<?php echo $color; ?> waves-effect waves-light col-12" id="btn_agregar"> <?php echo $texto; ?> <i class="fas fa-heart"></i></button>
                                                         </div>
-                                                        <input type="hidden" id="librodd" value="<?php echo $link_libro; ?>">
-                                                        <a href="lectura.php?libro=<?php echo $link_libro; ?>" class="btn btn-success">Leer Libro</a>
+                                                        <div class="col-md-6">
+                                                            <input type="hidden" id="librodd" value="<?php echo $link_libro; ?>">
+                                                            <a href="lectura.php?libro=<?php echo $link_libro; ?>" class="btn btn-outline-success waves-effect waves-light col-12">Leer Libro</a>
+                                                        </div>
+
                                                     </div>
                                                 </center>
                                                 <iframe src="https://drive.google.com/file/d/<?php echo $r_b_libro['link_portada']; ?>/preview" frameborder="none" style="width:100%; height:500px; overflow: hidden;" scrolling="no"></iframe>
