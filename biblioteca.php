@@ -281,7 +281,7 @@ if (!verificar_sesion($conexion) == 1) {
                                                                     <?php } ?>
                                                                 </select>
                                                             </div>
-                                                            <!--<div class="col-md-6">
+                                                            <div class="col-md-6">
                                                                 <label>Semestre</label>
                                                                 <select name="semestre" id="semestre_m" class="form-control" value="<?php echo $semestre; ?>">
                                                                     <option value="TODOS">TODOS</option>
@@ -299,7 +299,7 @@ if (!verificar_sesion($conexion) == 1) {
                                                                 <select name="unidad_didactica" id="unidad_didactica_m" class="form-control" value="<?php echo $unidad_didactica; ?>">
                                                                     <option value="TODOS">TODOS</option>
                                                                 </select>
-                                                            </div>-->
+                                                            </div>
                                                             <div class="col-md-3 mb-3">
                                                                 <label for=""></label><br>
                                                                 <button class="btn btn-primary waves-effect waves-light" type="submit">Buscar</button>
@@ -387,7 +387,7 @@ if (!verificar_sesion($conexion) == 1) {
 
         <?php include "include/pie_scripts.php"; ?>
 
-        <!--<script type="text/javascript">
+        <script type="text/javascript">
             $(document).ready(function() {
 
                 $('#programa_estudio_m').change(function() {
@@ -417,7 +417,7 @@ if (!verificar_sesion($conexion) == 1) {
                     }
                 });
             }
-        </script>-->
+        </script>
 
     </body>
 
