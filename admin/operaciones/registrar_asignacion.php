@@ -13,19 +13,23 @@ if (!verificar_sesion($conexion) == 1) {
                   window.location.replace('../../index.php');
               </script>";
 } else {
-    $id_sesion = $_SESSION['id_sesion_biblioteca'];
-
-    $id_libro = $_POST['data'];
+    $libro = $_POST['data'];
+    $link = $_POST['data2'];
+    $id_programa_estudio = $_POST['id_programa'];
     $id_semestre = $_POST['id_semestre'];
     $id_unidad_didactica = $_POST['id_unidad_didactica'];
-    $categoria = $_POST['categoria'];
 
-    $consulta = "UPDATE libros SET id_semestre='$id_semestre',id_unidad_didactica='$id_unidad_didactica',tipo_libro='$categoria',id_sesion='$id_sesion' WHERE id='$id_libro'";
+    $b_libro = buscar_libroById($conexion, $libro);
+    $rb_libro = mysqli_fetch_array($b_libro);
+
+    $titulo = $rb_libro['titulo'];
+    $autor = $rb_libro['autor'];
+    $temas_relacionados = $rb_libro['temas_relacionados'];
+
+    $consulta = "INSERT INTO asignacion_libro (titulo, autor, temas_relacionados,id_libro,id_programa_estudio, id_semestre, id_unidad_didactica) VALUES ('$titulo','$autor','$temas_relacionados','$libro','$id_programa_estudio','$id_semestre','$id_unidad_didactica')";
     if (mysqli_query($conexion, $consulta)) {
-        migrar_libro_asignacion($conexion, $id_libro);
         echo "<script>
-			        alert('Actualizado Correctamente');
-                    window.location= '../reasignar_libro.php';
+                    window.location= '../ver_asignaciones.php?libro=".$link."';
 		            </script>
 		            ";
     } else {
@@ -35,9 +39,4 @@ if (!verificar_sesion($conexion) == 1) {
     </script>
     ";
     }
-
-
-
 }
-
-

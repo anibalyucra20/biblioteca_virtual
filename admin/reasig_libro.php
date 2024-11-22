@@ -61,7 +61,14 @@ if (!verificar_sesion($conexion) == 1) {
         <!-- Begin page -->
         <div id="layout-wrapper">
             <div class="main-content">
-                <?php include "include/mennu.php"; ?>
+                
+                <?php 
+                if ($r_b_usuario['id_cargo']==2) {
+                    include "include/menu.php";
+                }else {
+                    include "include/mennu.php";
+                }
+                 ?>
                 <div class="page-content">
                     <div class="container-fluid">
                         <!-- start page title -->

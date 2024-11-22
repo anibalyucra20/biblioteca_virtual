@@ -115,6 +115,8 @@ if (!verificar_sesion($conexion) == 1) {
 
     $consulta = "INSERT INTO libros (titulo, autor, editorial, edicion, tomo, tipo_libro, isbn, paginas, temas_relacionados,id_programa_estudio, id_semestre, id_unidad_didactica, link_portada, link_libro, id_sesion) VALUES ('$titulo', '$autor', '$editorial', '$edicion', '$tomo', '$categoria','$isbn', '$cant_paginas', '$temas_relacionados','$id_programa_estudio','$id_semestre','$id_unidad_didactica', '$id_portada_drive', '$id_libro_drive','$id_sesion')";
     if (mysqli_query($conexion, $consulta)) {
+        $id_libro = mysqli_insert_id($conexion);
+        migrar_libro_asignacion($conexion, $id_libro);
         echo "<script>
 			        alert('Se realizó el registro con Éxito');
                     window.location= '../libros.php';

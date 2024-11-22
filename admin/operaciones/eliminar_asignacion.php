@@ -13,21 +13,16 @@ if (!verificar_sesion($conexion) == 1) {
                   window.location.replace('../../index.php');
               </script>";
 } else {
-    $id_sesion = $_SESSION['id_sesion_biblioteca'];
 
-    $id_libro = $_POST['data'];
-    $id_semestre = $_POST['id_semestre'];
-    $id_unidad_didactica = $_POST['id_unidad_didactica'];
-    $categoria = $_POST['categoria'];
+    $link = $_GET['data'];
+    $id_asignacion = $_GET['data2'];
 
-    $consulta = "UPDATE libros SET id_semestre='$id_semestre',id_unidad_didactica='$id_unidad_didactica',tipo_libro='$categoria',id_sesion='$id_sesion' WHERE id='$id_libro'";
+    $consulta = "DELETE FROM asignacion_libro WHERE id='$id_asignacion'";
     if (mysqli_query($conexion, $consulta)) {
-        migrar_libro_asignacion($conexion, $id_libro);
         echo "<script>
-			        alert('Actualizado Correctamente');
-                    window.location= '../reasignar_libro.php';
-		            </script>
-		            ";
+        window.location= '../ver_asignaciones.php?libro=" . $link . "';
+        </script>
+        ";
     } else {
         echo "<script>
         alert('Error, No se pudo realizar el registro');
@@ -35,9 +30,4 @@ if (!verificar_sesion($conexion) == 1) {
     </script>
     ";
     }
-
-
-
 }
-
-

@@ -48,7 +48,7 @@ if (!verificar_sesion($conexion) == 1) {
     $envio_get = "&titulo=" . $titulo . "&autor=" . $autor . "&temas=" . $temas . "&programa_estudio=" . $programa_estudio . "&semestre=" . $semestre . "&unidad_didactica=" . $unidad_didactica;
 
     $validar = 0;
-    $consulta_e = "SELECT * FROM libros ";
+    $consulta_e = "SELECT * FROM asignacion_libro ";
     $condicion_busqueda = "";
 
     if (!$titulo == '') {
@@ -140,7 +140,7 @@ if (!verificar_sesion($conexion) == 1) {
         if (!isset($_GET['pagina'])) header('location:biblioteca.php?pagina=1&programa_estudio=' . $id_programa_estudios_sesion);
         if ($_GET['pagina'] > $paginas || $_GET['pagina'] < 1) header('location:biblioteca.php?pagina=1&programa_estudio=' . $id_programa_estudios_sesion);
 
-        $buscar = "SELECT * FROM libros " . $condicion_busqueda . " LIMIT $iniciar, $articulos_por_pagina";
+        $buscar = "SELECT * FROM asignacion_libro " . $condicion_busqueda . " LIMIT $iniciar, $articulos_por_pagina";
         $ejec_buscar = mysqli_query($conexion, $buscar);
 
 
@@ -330,6 +330,11 @@ if (!verificar_sesion($conexion) == 1) {
                             <div class="row">
                                 <?php
                                 while ($res_bus = mysqli_fetch_array($ejec_buscar)) {
+
+                                    $id_material = $res_bus['id_libro'];
+                                    $b_material = buscar_libroById($conexion, $id_material);
+                                    $rb_material = mysqli_fetch_array($b_material);
+
                                     $b_programa = buscarCarrerasById($conexion_sispa, $res_bus['id_programa_estudio']);
                                     $r_b_programa = mysqli_fetch_array($b_programa);
 
@@ -340,7 +345,7 @@ if (!verificar_sesion($conexion) == 1) {
                                     $r_b_ud = mysqli_fetch_array($b_ud);
                                 ?>
                                     <div class="card col-lg-3 col-md-3 col-sm-6 mb-2">
-                                    <iframe src="https://drive.google.com/file/d/<?php echo $res_bus['link_portada']; ?>/preview" frameborder="none" style="width:100%; height:500px; overflow: hidden;" scrolling="no"></iframe>
+                                    <iframe src="https://drive.google.com/file/d/<?php echo $rb_material['link_portada']; ?>/preview" frameborder="none" style="width:100%; height:500px; overflow: hidden;" scrolling="no"></iframe>
                                         <div class="card-body">
                                             <h5 class="card-title" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;"><?php echo $res_bus['titulo']; ?></h5>
                                             <p class="card-text"><?php echo $r_b_programa['nombre'] . ' - ' . $r_b_semestre['descripcion']; ?></p>

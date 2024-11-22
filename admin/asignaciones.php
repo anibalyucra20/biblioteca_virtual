@@ -67,7 +67,7 @@ if (!verificar_sesion($conexion) == 1) {
                             <div class="card">
                                 <div class="card-body">
                                     
-                                    <h4 class="card-title">Relación de Ejemplares</h4>
+                                    <h4 class="card-title">Relación de Libros</h4>
                                     <a href="registro_libro.php" class="btn btn-success">Nuevo <i class="fas fa-plus-square"></i></a><br><br>
                                     <table id="example" class="table dt-responsive " width="100%">
                                         <thead>
@@ -84,9 +84,12 @@ if (!verificar_sesion($conexion) == 1) {
                                         </thead>
                                         <tbody>
                                             <?php 
-                                            $b_libros = buscar_libro($conexion);
+                                            $b_asignacion = buscar_asignaciones($conexion);
                                             $cont = 0 ;
-                                            while ($r_b_libro = mysqli_fetch_array($b_libros)) {
+                                            while ($r_b_asignacion = mysqli_fetch_array($b_asignacion)) {
+                                                $id_libro = $r_b_asignacion['id_libro'];
+                                                $b_libro = buscar_libroById($conexion, $id_libro);
+                                                $r_b_libro = mysqli_fetch_array($b_libro);
                                                 $cont ++;
                                              ?>
                                             <tr>
@@ -95,23 +98,24 @@ if (!verificar_sesion($conexion) == 1) {
                                                 <td><?php echo $r_b_libro['titulo']; ?></td>
                                                 <td><?php echo $r_b_libro['autor']; ?></td>
                                                 <td><?php
-                                                    $b_programa = buscarCarrerasById($conexion_sispa, $r_b_libro['id_programa_estudio']);
+                                                    $b_programa = buscarCarrerasById($conexion_sispa, $r_b_asignacion['id_programa_estudio']);
                                                     $r_b_programa = mysqli_fetch_array($b_programa);
                                                     echo $r_b_programa['nombre'];
                                                 ?></td>
                                                 <td><?php
-                                                    $b_semestre = buscarSemestreById($conexion_sispa, $r_b_libro['id_semestre']);
+                                                    $b_semestre = buscarSemestreById($conexion_sispa, $r_b_asignacion['id_semestre']);
                                                     $r_b_semestre = mysqli_fetch_array($b_semestre);
                                                     echo $r_b_semestre['descripcion'];
                                                 ?></td>
                                                 <td><?php
-                                                    $b_ud = buscarUdById($conexion_sispa, $r_b_libro['id_unidad_didactica']);
+                                                    $b_ud = buscarUdById($conexion_sispa, $r_b_asignacion['id_unidad_didactica']);
                                                     $r_b_ud = mysqli_fetch_array($b_ud);
                                                     echo $r_b_ud['descripcion'];
                                                 ?></td>
                                                 <td>
                                                     <a href="editar_libro.php?libro=<?php echo $r_b_libro['link_portada']; ?>" class="btn btn-success">Editar</a>
-                                                    <a href="ver_asignaciones.php?libro=<?php echo $r_b_libro['link_portada']; ?>" class="btn btn-info"><i class="fa fa-code-branch"></i></a>
+                                                     
+                                                    <!--<button type="button" class="btn btn-primary">Ver</button>-->
                                                 </td>
                                             </tr>
                                             <?php } ?>

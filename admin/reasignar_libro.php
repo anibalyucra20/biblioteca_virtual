@@ -59,7 +59,13 @@ if (!verificar_sesion($conexion) == 1) {
     <!-- Begin page -->
     <div id="layout-wrapper">
         <div class="main-content">
-            <?php include "include/mennu.php"; ?>
+        <?php 
+                if ($r_b_usuario['id_cargo']==2) {
+                    include "include/menu.php";
+                }else {
+                    include "include/mennu.php";
+                }
+                 ?>
             <div class="page-content">
                 <div class="container-fluid">
                     <!-- start page title -->
@@ -112,6 +118,7 @@ if (!verificar_sesion($conexion) == 1) {
                                                 ?></td>
                                                 <td>
                                                     <a href="reasig_libro.php?libro=<?php echo $r_b_libro['link_portada']; ?>" class="btn btn-success">Editar</a>
+                                                    <a href="ver_asignaciones.php?libro=<?php echo $r_b_libro['link_portada']; ?>" class="btn btn-info"><i class="fa fa-code-branch"></i></a>
                                                 </td>
                                             </tr>
                                             <?php } ?>

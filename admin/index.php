@@ -28,7 +28,7 @@ if (!verificar_sesion($conexion) == 1) {
               </script>";
     }
     $r_b_usuario = mysqli_fetch_array($b_usuario);
-
+    migrar_libros_asignacion($conexion);
 ?>
 
 <!DOCTYPE html>

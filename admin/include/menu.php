@@ -2,7 +2,7 @@
     <div class="navbar-header">
         <!-- LOGO -->
         <div class="navbar-brand-box d-flex align-items-left">
-        <a href="index.php" class="logo">
+            <a href="index.php" class="logo">
                 <img src="../images/logo.png" alt="" width="90px">
                 <span>
                     Biblioteca Virtual IESTP HUANTA
@@ -20,6 +20,9 @@
                     <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="reasignar_libro.php">
+                        <span>Reasignar Libros</span>
+                    </a>
                     <a class="dropdown-item d-flex align-items-center justify-content-between" href="../index.php">
                         <span>Cambiar a Biblioteca</span>
                     </a>
@@ -48,7 +51,7 @@
                             <i class="fas fa-book"></i>Libros
                         </a>
                     </li>
-                    
+
                 </ul>
             </div>
         </nav>

@@ -141,6 +141,7 @@ if (!verificar_sesion($conexion) == 1) {
 
     $consulta = "UPDATE libros SET titulo='$titulo',autor='$autor',editorial='$editorial',edicion='$edicion',tomo='$tomo',tipo_libro='$categoria',isbn='$isbn',paginas='$cant_paginas',temas_relacionados='$temas_relacionados',id_programa_estudio='$id_programa_estudio',id_semestre='$id_semestre',id_unidad_didactica='$id_unidad_didactica',link_portada='$id_portada_drive',link_libro='$id_libro_drive',id_sesion='$id_sesion' WHERE id='$id_libro'";
     if (mysqli_query($conexion, $consulta)) {
+        migrar_libro_asignacion($conexion, $id_libro);
         echo "<script>
 			        alert('Actualizado Correctamente');
                     window.location= '../libros.php';

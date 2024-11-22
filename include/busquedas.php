@@ -29,6 +29,28 @@ function buscar_libroByLinkPortada($conexion, $link){
     mysqli_query($conexion, $sql);
 }
 
+//-------------------------ASIGNACIONES------------------------------
+
+function buscar_asignaciones($conexion){
+    $sql = "SELECT * FROM asignacion_libro";
+    return mysqli_query($conexion, $sql);
+}
+function buscar_asignacionById($conexion, $id){
+    $sql = "SELECT * FROM asignacion_libro WHERE id='$id'";
+    return mysqli_query($conexion, $sql);
+}
+function buscar_asignacionByIdLibro($conexion, $id_libro){
+    $sql = "SELECT * FROM asignacion_libro WHERE id_libro='$id_libro'";
+    return mysqli_query($conexion, $sql);
+}
+function buscar_asignacionByIdPE($conexion, $id_pe){
+    $sql = "SELECT * FROM asignacion_libro WHERE id_programa_estudio='$id_pe'";
+    return mysqli_query($conexion, $sql);
+}
+function buscar_asignacionByIdLibroAndUd($conexion, $id_libro, $id_ud){
+    $sql = "SELECT * FROM asignacion_libro WHERE id_libro='$id_libro' AND id_unidad_didactica='$id_ud'";
+    return mysqli_query($conexion, $sql);
+}
 
 //-------------------------LECTURAS------------------------------
 function buscar_lecturas($conexion){
