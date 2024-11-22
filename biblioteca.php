@@ -351,7 +351,7 @@ if (!verificar_sesion($conexion) == 1) {
                                             <p class="card-text"><?php echo $r_b_programa['nombre'] . ' - ' . $r_b_semestre['descripcion']; ?></p>
                                             <p class="card-text"><?php echo $r_b_ud['descripcion']; ?></p>
                                             <p class="card-text">Autor: <?php echo $res_bus['autor']; ?></p>
-                                            <center><a href="detalle.php?libro=<?php echo $res_bus['link_portada'] ?>" class="btn btn-info">Ver</a></center>
+                                            <center><a href="detalle.php?libro=<?php echo $rb_material['link_portada'] ?>" class="btn btn-info">Ver</a></center>
                                         </div>
                                     </div>
                                 <?php } ?>
