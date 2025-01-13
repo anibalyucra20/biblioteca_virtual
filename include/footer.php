@@ -14,4 +14,9 @@
             </div>
         </div>
     </div>
+    <style>
+        .ndfHFb-c4YZDc-Wrql6b {
+            opacity: 0% !important;
+        }
+    </style>
 </footer>
