@@ -14,4 +14,7 @@
                 height: 80%;
                 object-fit: cover;
             }
+            .ndfHFb-c4YZDc-Wrql6b{
+                opacity: 0%;
+            }
         </style>
