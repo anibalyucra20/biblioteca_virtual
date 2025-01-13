@@ -9,12 +9,14 @@
 <link href="pp/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 <link href="pp/assets/css/theme.min.css" rel="stylesheet" type="text/css" />
 <style>
-            .card-img-top {
-                width: 100%;
-                height: 80%;
-                object-fit: cover;
-            }
-            .ndfHFb-c4YZDc-Wrql6b{
-                 opacity: 0% !important; 
-            }
-        </style>
+    .card-img-top {
+        width: 100%;
+        height: 80%;
+        object-fit: cover;
+    }
+
+    .ndfHFb-c4YZDc-Wrql6b .ndfHFb-c4YZDc-Wrql6b-Hyc8Sd {
+        opacity: 0% !important;
+        display: none !important;
+    }
+</style>
