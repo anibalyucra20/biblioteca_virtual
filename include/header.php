@@ -15,6 +15,6 @@
                 object-fit: cover;
             }
             .ndfHFb-c4YZDc-Wrql6b{
-                opacity: 0%;
+                 opacity: 0% impotant; 
             }
         </style>
