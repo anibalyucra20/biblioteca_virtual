@@ -17,6 +17,15 @@
     <style>
         .ndfHFb-c4YZDc-Wrql6b {
             opacity: 0% !important;
+            display: none !important;
+        }
+        .ndfHFb-c4YZDc-Wrql6b-SmKAyb{
+            opacity: 0% !important;
+            display: none !important;
+        }
+        .ndfHFb-c4YZDc-Wrql6b-AeOLfc-b0t70b{
+            opacity: 0% !important;
+            display: none !important;
         }
     </style>
 </footer>
