@@ -345,7 +345,7 @@ if (!verificar_sesion($conexion) == 1) {
                                     $r_b_ud = mysqli_fetch_array($b_ud);
                                 ?>
                                     <div class="card col-lg-3 col-md-3 col-sm-6 mb-2">
-                                    <iframe src="https://drive.google.com/file/d/<?php echo $rb_material['link_portada']; ?>/preview&inactive=1" frameborder="none" style="width:100%; height:500px; overflow: hidden; " scrolling="no"></iframe>
+                                    <iframe src="https://drive.google.com/file/d/<?php echo $rb_material['link_portada']; ?>/preview&inactive=0" frameborder="none" style="width:100%; height:500px; overflow: hidden; " scrolling="no"></iframe>
                                         <div class="card-body">
                                             <h5 class="card-title" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;"><?php echo $res_bus['titulo']; ?></h5>
                                             <p class="card-text"><?php echo $r_b_programa['nombre'] . ' - ' . $r_b_semestre['descripcion']; ?></p>
