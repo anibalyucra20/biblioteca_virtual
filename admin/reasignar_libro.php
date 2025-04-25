@@ -104,7 +104,7 @@ if (!verificar_sesion($conexion) == 1) {
                                                 <td><?php
                                                     $b_programa = buscarCarrerasById($conexion_sispa, $r_b_libro['id_programa_estudio']);
                                                     $r_b_programa = mysqli_fetch_array($b_programa);
-                                                    echo $r_b_programa['nombre'];
+                                                    echo $r_b_programa['nombre']." ".$r_b_programa['plan_estudio'];
                                                 ?></td>
                                                 <td><?php
                                                     $b_semestre = buscarSemestreById($conexion_sispa, $r_b_libro['id_semestre']);

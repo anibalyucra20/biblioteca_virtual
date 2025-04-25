@@ -99,7 +99,7 @@ if (!verificar_sesion($conexion) == 1) {
                                                         while ($r_b_carreras = mysqli_fetch_array($b_carreras)) { ?>
                                                             <option value="<?php echo $r_b_carreras['id']; ?>" <?php if ($r_b_carreras['id'] == $r_b_libro['id_programa_estudio']) {
                                                                                                                     echo "selected";
-                                                                                                                } ?>><?php echo $r_b_carreras['nombre']; ?></option>
+                                                                                                                } ?>><?php echo $r_b_carreras['nombre']." ".$r_b_carreras['plan_estudio']; ?></option>
                                                         <?php } ?>
                                                     </select>
                                                 </div>

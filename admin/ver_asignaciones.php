@@ -125,7 +125,7 @@ if (!verificar_sesion($conexion) == 1) {
                                                         ?>
                                                             <tr>
                                                                 <td><?php echo $cont; ?></td>
-                                                                <td><?php echo $rb_pe['nombre']; ?></td>
+                                                                <td><?php echo $rb_pe['nombre']." ".$rb_pe['plan_estudio']; ?></td>
                                                                 <td><?php echo $rb_ud['descripcion']; ?></td>
                                                                 <td><?php echo $rb_ud['descripcion']; ?></td>
                                                                 <td><a title="Eliminar" class="btn btn-danger" href="operaciones/eliminar_asignacion.php?data=<?php echo $libro; ?>&data2=<?php echo $rb_asignaciones['id']; ?>" onclick="return confirmardelete();"><i class="fa fa-trash"></i></a></td>
@@ -157,7 +157,7 @@ if (!verificar_sesion($conexion) == 1) {
                                                                         while ($r_b_carreras = mysqli_fetch_array($b_carreras)) { ?>
                                                                             <option value="<?php echo $r_b_carreras['id']; ?>" <?php if ($r_b_carreras['id'] == $r_b_libro['id_programa_estudio']) {
                                                                                                                                     echo "selected";
-                                                                                                                                } ?>><?php echo $r_b_carreras['nombre']; ?></option>
+                                                                                                                                } ?>><?php echo $r_b_carreras['nombre']." ".$r_b_carreras['plan_estudio']; ?></option>
                                                                         <?php } ?>
                                                                     </select>
                                                                 </div>
