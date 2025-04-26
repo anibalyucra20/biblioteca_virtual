@@ -89,8 +89,6 @@ $r_b_usuario = mysqli_fetch_array($b_usuario);
 
                                         <div class="col-md-9 mb-3">
                                             <form role="form" action="operaciones/registrar_asignacion.php" method="POST" enctype="multipart/form-data">
-                                                <input type="hidden" name="data" value="<?php echo $id_libro; ?>">
-                                                <input type="hidden" name="data2" value="<?php echo $libro; ?>">
                                                 <div class="col-md-12 mb-3">
                                                     <label for="validationCustom01">Programa de Estudios :</label>
                                                     <select name="id_programa" id="id_programa_m" class="form-control" required value="<?php echo $r_b_libro['id_programa_estudio']; ?>">
@@ -119,15 +117,22 @@ $r_b_usuario = mysqli_fetch_array($b_usuario);
                                                 </div>
                                                 <div class="col-md-12 mb-3">
                                                     <label for="validationCustom01">Unidad Didáctica :</label>
-                                                    <select name="id_unidad_didactica" id="id_unidad_didactica_m" class="form-control" required value="<?php echo $r_b_libro['id_unidad_didactica']; ?>">
+                                                    <select name="id_unidad_didactica" id="id_unidad_didactica_m" class="form-control" required>
                                                         <option value=""></option>
                                                     </select>
                                                 </div>
-                                                <button type="button" class="btn btn-info"><i class="fa fa-search"></i></button>
+                                                <div class="col-md-12 mb-3">
+                                                    <label for="validationCustom01">Palabra Clave :</label>
+                                                    <input type="text" name="palabra_clave" id="palabra_clave" class="form-control">
+                                                </div>
+                                                <button type="button" class="btn btn-info" onclick="listar_libros();"><i class="fa fa-search"></i></button>
                                                 <br>
                                                 <br>
                                                 <br>
-                                                <table class="table-bordered">
+                                                <div id="contenido_notificacion">
+
+                                                </div>
+                                                <table class="table table-bordered">
                                                     <thead>
                                                         <tr>
                                                             <th>Nro</th>
@@ -141,7 +146,6 @@ $r_b_usuario = mysqli_fetch_array($b_usuario);
                                                     <tbody id="contenido_libros_masiva">
                                                     </tbody>
                                                 </table>
-                                                <button class="btn btn-primary waves-effect waves-light" type="submit">Registrar</button>
                                             </form>
                                         </div>
                                         <!---- FIN MODAL -->
@@ -188,12 +192,12 @@ $r_b_usuario = mysqli_fetch_array($b_usuario);
     </script>
     <script type="text/javascript">
         function listar_uds() {
-            var ud = $('#id_ud_m').val();
+            var ud = $('#id_unidad_didactica_m').val();
             var carr = $('#id_programa_m').val();
             var sem = $('#id_semestre_m').val();
             $.ajax({
                 type: "POST",
-                url: "operaciones/listar_ud_edit.php",
+                url: "operaciones/listar_ud.php",
                 data: {
                     id_pe: carr,
                     id_sem: sem,
@@ -201,6 +205,48 @@ $r_b_usuario = mysqli_fetch_array($b_usuario);
                 },
                 success: function(r) {
                     $('#id_unidad_didactica_m').html(r);
+                }
+            });
+        }
+    </script>
+    <script type="text/javascript">
+        function listar_libros() {
+            var ud = $('#id_unidad_didactica_m').val();
+            var carr = $('#id_programa_m').val();
+            var sem = $('#id_semestre_m').val();
+            var palabra = $('#palabra_clave').val();
+            if (ud == '' || carr == '' || sem == '' || palabra == '') {
+                alert("falta seleccionar la unidad didactica y/o contenido");
+            } else {
+                $.ajax({
+                    type: "POST",
+                    url: "operaciones/listar_libros.php",
+                    data: {
+                        id_pe: carr,
+                        id_sem: sem,
+                        id_ud: ud,
+                        palabra: palabra
+                    },
+                    success: function(r) {
+                        $('#contenido_libros_masiva').html(r);
+                    }
+                });
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        function agregar_asignacion(pe = 0, sem = 0, ud = 0, libro = 0) {
+            $.ajax({
+                type: "POST",
+                url: "operaciones/registrar_asignacion_masiva.php",
+                data: {
+                    id_pe: pe,
+                    id_sem: sem,
+                    id_ud: ud,
+                    libro: libro
+                },
+                success: function(r) {
+                    $('#contenido_notificacion').html(r);
                 }
             });
         }

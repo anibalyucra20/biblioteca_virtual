@@ -28,6 +28,11 @@ function buscar_libroByLinkPortada($conexion, $link){
     return 
     mysqli_query($conexion, $sql);
 }
+function buscar_libroByTemaRelacionado($conexion, $dato){
+    $sql = "SELECT * FROM libros WHERE temas_relacionados LIKE '%" . $dato . "%'";
+    return 
+    mysqli_query($conexion, $sql);
+}
 
 //-------------------------ASIGNACIONES------------------------------
 
@@ -55,6 +60,7 @@ function buscar_asignacionByIdLibroAndUd($conexion, $id_libro, $id_ud){
     $sql = "SELECT * FROM asignacion_libro WHERE id_libro='$id_libro' AND id_unidad_didactica='$id_ud'";
     return mysqli_query($conexion, $sql);
 }
+
 
 //-------------------------LECTURAS------------------------------
 function buscar_lecturas($conexion){

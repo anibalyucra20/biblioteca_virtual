@@ -68,7 +68,9 @@ include("../include/funciones.php");
                                 <div class="card-body">
                                     
                                     <h4 class="card-title">Relación de Ejemplares</h4>
-                                    <a href="registro_libro.php" class="btn btn-success">Nuevo <i class="fas fa-plus-square"></i></a><br><br>
+                                    <a href="registro_libro.php" class="btn btn-success">Nuevo <i class="fas fa-plus-square"></i></a><br>
+                                    <a href="asignacion_masiva.php" rel="noopener noreferrer" class="btn btn-warning">Asignación masiva</a>
+                                    <br><br>
                                     <table id="example" class="table dt-responsive " width="100%">
                                         <thead>
                                             <tr>
