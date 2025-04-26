@@ -107,7 +107,6 @@ if (!verificar_sesion($conexion) == 1) {
                                                             <th>Acciones</th>
                                                         </tr>
                                                     </thead>
-
                                                     <tbody>
                                                         <?php
                                                         $b_asignaciones = buscar_asignacionByIdLibro($conexion, $id_libro);

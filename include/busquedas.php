@@ -47,6 +47,10 @@ function buscar_asignacionByIdPE($conexion, $id_pe){
     $sql = "SELECT * FROM asignacion_libro WHERE id_programa_estudio='$id_pe'";
     return mysqli_query($conexion, $sql);
 }
+function buscar_asignacionByIdUd($conexion, $id_ud){
+    $sql = "SELECT * FROM asignacion_libro WHERE id_unidad_didactica='$id_ud'";
+    return mysqli_query($conexion, $sql);
+}
 function buscar_asignacionByIdLibroAndUd($conexion, $id_libro, $id_ud){
     $sql = "SELECT * FROM asignacion_libro WHERE id_libro='$id_libro' AND id_unidad_didactica='$id_ud'";
     return mysqli_query($conexion, $sql);
