@@ -88,7 +88,7 @@ $r_b_usuario = mysqli_fetch_array($b_usuario);
                                     <div class="form-row">
 
                                         <div class="col-md-9 mb-3">
-                                            <form role="form" action="operaciones/registrar_asignacion.php" method="POST" enctype="multipart/form-data">
+                                            <form role="form">
                                                 <div class="col-md-12 mb-3">
                                                     <label for="validationCustom01">Programa de Estudios :</label>
                                                     <select name="id_programa" id="id_programa_m" class="form-control" required value="<?php echo $r_b_libro['id_programa_estudio']; ?>">
