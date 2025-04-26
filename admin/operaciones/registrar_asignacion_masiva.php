@@ -16,20 +16,29 @@ if ($id_programa_estudio == 0 || $id_semestre == 0 || $id_unidad_didactica == 0 
 </script>
 ";
 } else {
-    $b_libro = buscar_libroById($conexion, $libro);
-    $rb_libro = mysqli_fetch_array($b_libro);
+    $b_asignacion = buscar_asignacionByIdLibroAndUd($conexion, $libro, $id_unidad_didactica);
+    $cont = mysqli_num_rows($b_asignacion);
+    if ($cont == 0) {
+        $b_libro = buscar_libroById($conexion, $libro);
+        $rb_libro = mysqli_fetch_array($b_libro);
 
-    $titulo = $rb_libro['titulo'];
-    $autor = $rb_libro['autor'];
-    $temas_relacionados = $rb_libro['temas_relacionados'];
+        $titulo = $rb_libro['titulo'];
+        $autor = $rb_libro['autor'];
+        $temas_relacionados = $rb_libro['temas_relacionados'];
 
-    $consulta = "INSERT INTO asignacion_libro (titulo, autor, temas_relacionados,id_libro,id_programa_estudio, id_semestre, id_unidad_didactica) VALUES ('$titulo','$autor','$temas_relacionados','$libro','$id_programa_estudio','$id_semestre','$id_unidad_didactica')";
-    if (mysqli_query($conexion, $consulta)) {
-        echo "Registro exitoso";
-    } else {
+        $consulta = "INSERT INTO asignacion_libro (titulo, autor, temas_relacionados,id_libro,id_programa_estudio, id_semestre, id_unidad_didactica) VALUES ('$titulo','$autor','$temas_relacionados','$libro','$id_programa_estudio','$id_semestre','$id_unidad_didactica')";
+        if (mysqli_query($conexion, $consulta)) {
+            echo "Registro exitoso";
+        } else {
+            echo "<script>
+                alert('Error, no se registro');
+            </script>
+            ";
+        }
+    }else {
         echo "<script>
-        alert('Error, no se registro');
-    </script>
-    ";
+            alert('Error, libro ya asignado a la unidad didactica');
+        </script>
+        ";
     }
 }
