@@ -42,6 +42,12 @@
     .ndfHFb-c4YZDc-K9a4Re{
       pointer-events: none; /* Deshabilita el clic en el enlace */
     }
+    .ndfHFb-c4YZDc-q77wGc{
+      pointer-events: none; /* Deshabilita el clic en el enlace */
+    }
+    .ndfHFb-c4YZDc-Wrql6b{
+      pointer-events: none; /* Deshabilita el clic en el enlace */
+    }
   `;
         document.head.appendChild(style);
 
