@@ -351,7 +351,7 @@ if (!verificar_sesion($conexion) == 1) {
                                             <embed src="https://drive.google.com/file/d/<?php echo $rb_material['link_portada']; ?>/preview" type="application/pdf" style="width:100%; height:500px; overflow: hidden; " />
                                         </object>-->
                                         <div style="position: relative;">
-                                            <iframe src="https://drive.google.com/file/d/<?php echo $rb_material['link_portada']; ?>" sandbox="allow-scripts allow-same-origin"></iframe>
+                                            <iframe src="https://drive.google.com/file/d/<?php echo $rb_material['link_portada']; ?>/preview" sandbox="allow-scripts allow-same-origin" style="width:100%; height:500px; overflow: hidden; "></iframe>
                                             <div style="width:40px; height:40px; position:absolute; background:white; right:12px; top: 12px;">&nbsp;</div>
 
                                         </div>
