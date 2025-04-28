@@ -17,9 +17,9 @@
 </footer>
 <style>
     .ndfHFb-c4YZDc-Wrql6b, .ndfHFb-c4YZDc-Wrql6b-SmKAyb, .ndfHFb-c4YZDc-Wrql6b-DdWCyb-b0t70b, .ndfHFb-c4YZDc-Wrql6b-AeOLfc-b0t70b, .ndfHFb-c4YZDc-GSQQnc-LgbsSe, .ndfHFb-c4YZDc-to915-LgbsSe, .VIpgJd-TzA9Ye-eEGnhe, .ndfHFb-c4YZDc-LgbsSe, .ndfHFb-c4YZDc-Bz112c, .ndfHFb-c4YZDc-DH6Rkf-Bz112c{
-        display: none;
+        display: none !important;
     }
     .ndfHFb-c4YZDc-q77wGc, .ndfHFb-c4YZDc-nJjxad-nK2kYb-i5oIFb, .ndfHFb-c4YZDc-nJjxad-m9bMae-LgbsSe, .VIpgJd-TzA9Ye-eEGnhe, .ndfHFb-c4YZDc-LgbsSe, .ndfHFb-c4YZDc-LgbsSe-OWB6Me, .ndfHFb-c4YZDc-Bz112c, .ndfHFb-c4YZDc-LgbsSe, .ndfHFb-c4YZDc-nJjxad-hj4D6d-LgbsSe, .ndfHFb-c4YZDc-nJjxad-S9gUrf, .ndfHFb-c4YZDc-LgbsSe, .ndfHFb-c4YZDc-to915-LgbsSe, .ndfHFb-c4YZDc-nJjxad-bEDTcc-LgbsSe{
-        display: none;
+        display: none !important;
     }
 </style>
