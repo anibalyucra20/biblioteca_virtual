@@ -39,9 +39,8 @@
         opacity: 0% !important;
 
     }
-    .ndfHFb-c4YZDc-K9a4Re:hover ~ .ndfHFb-c4YZDc-Wrql6b{
-        display: none !important;
-        opacity: 0% !important;
+    .ndfHFb-c4YZDc-K9a4Re{
+      pointer-events: none; /* Deshabilita el clic en el enlace */
     }
   `;
         document.head.appendChild(style);
