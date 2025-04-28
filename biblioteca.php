@@ -344,13 +344,13 @@ if (!verificar_sesion($conexion) == 1) {
                                     $b_ud = buscarUdById($conexion_sispa, $res_bus['id_unidad_didactica']);
                                     $r_b_ud = mysqli_fetch_array($b_ud);
                                 ?>
-                                    <div class="card col-lg-3 col-md-3 col-sm-6 mb-2" style="background: #1e1e1f">
+                                    <div class="card col-lg-3 col-md-3 col-sm-6 mb-2" >
                                         <!--<iframe src="https://drive.google.com/file/d/<?php echo $rb_material['link_portada']; ?>/preview" frameborder="none" style="width:100%; height:500px; overflow: hidden; " scrolling="no" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation"></iframe>-->
 
                                         <!--<object data="https://drive.google.com/file/d/<?php echo $rb_material['link_portada']; ?>/preview" type="application/pdf" style="width:100%; height:500px; overflow: hidden; ">
                                             <embed src="https://drive.google.com/file/d/<?php echo $rb_material['link_portada']; ?>/preview" type="application/pdf" style="width:100%; height:500px; overflow: hidden; " />
                                         </object>-->
-                                        <div style="position: relative;">
+                                        <div style="position: relative;" style="background: #1e1e1f">
                                             <iframe src="https://drive.google.com/file/d/<?php echo $rb_material['link_portada']; ?>/preview" frameborder="none"  sandbox="allow-scripts allow-same-origin" style="width:100%; height:500px; overflow: hidden; " scrolling="no"></iframe>
                                             <div style="width:40px; height:40px; position:absolute; background: #1e1e1f; right:12px; top: 12px;">&nbsp;</div>
                                             <div style="width:130px; height:50px; position:absolute; background: #1e1e1f; right:67px; top: 440px;">&nbsp;</div>
