@@ -277,7 +277,7 @@ if (!verificar_sesion($conexion) == 1) {
                                                                     while ($r_b_carreras = mysqli_fetch_array($b_carreras)) { ?>
                                                                         <option value="<?php echo $r_b_carreras['id']; ?>" <?php if ($programa_estudio == $r_b_carreras['id']) {
                                                                                                                                 echo "selected";
-                                                                                                                            } ?>><?php echo $r_b_carreras['nombre']." ".$r_b_carreras['plan_estudio']; ?></option>
+                                                                                                                            } ?>><?php echo $r_b_carreras['nombre'] . " " . $r_b_carreras['plan_estudio']; ?></option>
                                                                     <?php } ?>
                                                                 </select>
                                                             </div>
@@ -345,11 +345,16 @@ if (!verificar_sesion($conexion) == 1) {
                                     $r_b_ud = mysqli_fetch_array($b_ud);
                                 ?>
                                     <div class="card col-lg-3 col-md-3 col-sm-6 mb-2">
-                                        <iframe src="https://drive.google.com/file/d/<?php echo $rb_material['link_portada']; ?>/preview" frameborder="none" style="width:100%; height:500px; overflow: hidden; " scrolling="no" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation"></iframe>
-                                        
+                                        <!--<iframe src="https://drive.google.com/file/d/<?php echo $rb_material['link_portada']; ?>/preview" frameborder="none" style="width:100%; height:500px; overflow: hidden; " scrolling="no" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation"></iframe>-->
+
                                         <!--<object data="https://drive.google.com/file/d/<?php echo $rb_material['link_portada']; ?>/preview" type="application/pdf" style="width:100%; height:500px; overflow: hidden; ">
                                             <embed src="https://drive.google.com/file/d/<?php echo $rb_material['link_portada']; ?>/preview" type="application/pdf" style="width:100%; height:500px; overflow: hidden; " />
                                         </object>-->
+                                        <div style="position: relative;">
+                                            <iframe src="https://drive.google.com/file/d/<?php echo $rb_material['link_portada']; ?> &embedded=true" sandbox="allow-scripts allow-same-origin"></iframe>
+                                            <div style="width:40px; height:40px; position:absolute; background:white; right:12px; top: 12px;">&nbsp;</div>
+
+                                        </div>
                                         <div class="card-body">
                                             <h5 class="card-title" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;"><?php echo $res_bus['titulo']; ?></h5>
                                             <p class="card-text"><?php echo $r_b_programa['nombre'] . ' - ' . $r_b_semestre['descripcion']; ?></p>
