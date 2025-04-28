@@ -41,13 +41,17 @@
   `;
         document.head.appendChild(style);
 
-        var elementos = document.querySelectorAll('.ndfHFb-c4YZDc-q77wGc, .ndfHFb-c4YZDc-nJjxad-nK2kYb-i5oIFb, .ndfHFb-c4YZDc-nJjxad-m9bMae-LgbsSe, .VIpgJd-TzA9Ye-eEGnhe, .ndfHFb-c4YZDc-LgbsSe, .ndfHFb-c4YZDc-LgbsSe-OWB6Me, .ndfHFb-c4YZDc-Bz112c, .ndfHFb-c4YZDc-LgbsSe, .ndfHFb-c4YZDc-nJjxad-hj4D6d-LgbsSe, .ndfHFb-c4YZDc-nJjxad-S9gUrf, .ndfHFb-c4YZDc-LgbsSe, .ndfHFb-c4YZDc-to915-LgbsSe, .ndfHFb-c4YZDc-nJjxad-bEDTcc-LgbsSe');
+        var elementos = document.querySelectorAll('.ndfHFb-c4YZDc-q77wGc');
         elementos.forEach(function(elemento) {
             elemento.classList.add('mi-clase-personal');
+            elemento.style.display = "none";
+            elemento.style.opacity = "0";
         });
-        var elementos = document.querySelectorAll('.ndfHFb-c4YZDc-Wrql6b, .ndfHFb-c4YZDc-Wrql6b-SmKAyb, .ndfHFb-c4YZDc-Wrql6b-DdWCyb-b0t70b, .ndfHFb-c4YZDc-Wrql6b-AeOLfc-b0t70b, .ndfHFb-c4YZDc-GSQQnc-LgbsSe, .ndfHFb-c4YZDc-to915-LgbsSe, .VIpgJd-TzA9Ye-eEGnhe, .ndfHFb-c4YZDc-LgbsSe, .ndfHFb-c4YZDc-Bz112c, .ndfHFb-c4YZDc-DH6Rkf-Bz112c');
+        var elementos = document.querySelectorAll('.ndfHFb-c4YZDc-Wrql6b');
         elementos.forEach(function(elemento) {
             elemento.classList.add('mi-clase-personal');
+            elemento.style.display = "none";
+            elemento.style.opacity = "0";
         });
     });
 </script>
