@@ -39,7 +39,7 @@
         opacity: 0% !important;
 
     }
-    .mi-clase-personal:hover ~ .ndfHFb-c4YZDc-Wrql6b{
+    .ndfHFb-c4YZDc-K9a4Re:hover ~ .ndfHFb-c4YZDc-Wrql6b{
         display: none !important;
         opacity: 0% !important;
     }
