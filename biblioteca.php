@@ -348,8 +348,8 @@ if (!verificar_sesion($conexion) == 1) {
                                         <iframe src="https://drive.google.com/file/d/<?php echo $rb_material['link_portada']; ?>/preview" frameborder="none" style="width:100%; height:500px; overflow: hidden; " scrolling="no" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation"></iframe>
                                         
                                         <!--<object data="https://drive.google.com/file/d/<?php echo $rb_material['link_portada']; ?>/preview" type="application/pdf" style="width:100%; height:500px; overflow: hidden; ">
-                                            <embed src="https://drive.google.com/file/d/<?php echo $rb_material['link_portada']; ?>/preview" type="application/pdf" style="width:100%; height:500px; overflow: hidden; " />-->
-                                        </object>
+                                            <embed src="https://drive.google.com/file/d/<?php echo $rb_material['link_portada']; ?>/preview" type="application/pdf" style="width:100%; height:500px; overflow: hidden; " />
+                                        </object>-->
                                         <div class="card-body">
                                             <h5 class="card-title" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;"><?php echo $res_bus['titulo']; ?></h5>
                                             <p class="card-text"><?php echo $r_b_programa['nombre'] . ' - ' . $r_b_semestre['descripcion']; ?></p>
