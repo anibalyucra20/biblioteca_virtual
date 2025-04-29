@@ -96,7 +96,7 @@ if (!verificar_sesion($conexion) == 1) {
                                         </div>
                                         <div class="col-md-12 mb-3" style="position: relative; background: #1e1e1f">
                                             <iframe src="https://drive.google.com/file/d/<?php echo $r_b_libro['link_libro']; ?>/preview" width="100%" height="900"></iframe>
-                                                <div style="width:100px; height:50px; position:absolute; background: transparent; right:12px; top: 12px;"><img src="https://biblioteca.iestphuanta.edu.pe/images/logo.png" alt="" width="100%"></div>
+                                                <div style="width:200px; height:50px; position:absolute; background: transparent; right:12px; top: 12px;"><img src="https://biblioteca.iestphuanta.edu.pe/images/logo.png" alt="" width="100%"></div>
                                         </div>
                                     </div>
                                 </div>
