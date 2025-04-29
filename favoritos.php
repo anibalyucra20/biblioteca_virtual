@@ -157,39 +157,43 @@ if (!verificar_sesion($conexion) == 1) {
                         <div class="row">
                             <?php
                             while ($r_b_favoritos = mysqli_fetch_array($ejec_buscar)) {
-                                    $b_libro = buscar_libroById($conexion, $r_b_favoritos['id_libro']);
-                                    $res_bus_libro = mysqli_fetch_array($b_libro);
+                                $b_libro = buscar_libroById($conexion, $r_b_favoritos['id_libro']);
+                                $res_bus_libro = mysqli_fetch_array($b_libro);
 
-                                    $b_programa = buscarCarrerasById($conexion_sispa, $res_bus_libro['id_programa_estudio']);
-                                    $r_b_programa = mysqli_fetch_array($b_programa);
+                                $b_programa = buscarCarrerasById($conexion_sispa, $res_bus_libro['id_programa_estudio']);
+                                $r_b_programa = mysqli_fetch_array($b_programa);
 
-                                    $b_semestre = buscarSemestreById($conexion_sispa, $res_bus_libro['id_semestre']);
-                                    $r_b_semestre = mysqli_fetch_array($b_semestre);
+                                $b_semestre = buscarSemestreById($conexion_sispa, $res_bus_libro['id_semestre']);
+                                $r_b_semestre = mysqli_fetch_array($b_semestre);
 
-                                    $b_ud = buscarUdById($conexion_sispa, $res_bus_libro['id_unidad_didactica']);
-                                    $r_b_ud = mysqli_fetch_array($b_ud);
+                                $b_ud = buscarUdById($conexion_sispa, $res_bus_libro['id_unidad_didactica']);
+                                $r_b_ud = mysqli_fetch_array($b_ud);
                             ?>
                                 <div class="card col-lg-3 col-md-3 col-sm-6 mb-2">
-                                <iframe src="https://drive.google.com/file/d/<?php echo $res_bus_libro['link_portada']; ?>/preview" frameborder="none" style="width:100%; height:500px; overflow: hidden;" scrolling="no"></iframe>
-                                    <div class="card-body">
-                                        <h5 class="card-title" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;"><?php echo $res_bus_libro['titulo']; ?></h5>
-                                        <p class="card-text"><?php echo $r_b_programa['nombre'] . ' - ' . $r_b_semestre['descripcion']; ?></p>
-                                        <p class="card-text"><?php echo $r_b_ud['descripcion']; ?></p>
-                                        <p class="card-text">Autor: <?php echo $res_bus_libro['autor']; ?></p>
-                                        <center><a href="detalle.php?libro=<?php echo $res_bus_libro['link_portada'] ?>" class="btn btn-info">Ver</a></center>
-                                    </div>
+                                    <<div style="position: relative; background: #1e1e1f">
+                                        <iframe src="https://drive.google.com/file/d/<?php echo $res_bus_libro['link_portada']; ?>/preview" frameborder="none" style="width:100%; height:500px; overflow: hidden;" scrolling="no"></iframe>
+                                        <div style="width:80px; height:40px; position:absolute; background: transparent; right:12px; top: 12px;"><img src="https://biblioteca.iestphuanta.edu.pe/images/logo.png" alt="" width="100%"></div>
+                                        <div style="width:100%; height:500px; position:absolute; background: transparent; right:0px; top: 0px;">&nbsp;</div>
                                 </div>
-                            <?php } ?>
+                                <div class="card-body">
+                                    <h5 class="card-title" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;"><?php echo $res_bus_libro['titulo']; ?></h5>
+                                    <p class="card-text"><?php echo $r_b_programa['nombre'] . ' - ' . $r_b_semestre['descripcion']; ?></p>
+                                    <p class="card-text"><?php echo $r_b_ud['descripcion']; ?></p>
+                                    <p class="card-text">Autor: <?php echo $res_bus_libro['autor']; ?></p>
+                                    <center><a href="detalle.php?libro=<?php echo $res_bus_libro['link_portada'] ?>" class="btn btn-info">Ver</a></center>
+                                </div>
                         </div>
-                        <!-- end page title -->
-                    </div> <!-- container-fluid -->
-                </div>
-                <!-- End Page-content -->
-
-                <?php include "include/footer.php"; ?>
-
+                    <?php } ?>
+                    </div>
+                    <!-- end page title -->
+                </div> <!-- container-fluid -->
             </div>
-            <!-- end main content-->
+            <!-- End Page-content -->
+
+            <?php include "include/footer.php"; ?>
+
+        </div>
+        <!-- end main content-->
 
         </div>
         <!-- END layout-wrapper -->
