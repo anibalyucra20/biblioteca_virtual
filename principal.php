@@ -85,7 +85,11 @@ if (!verificar_sesion($conexion) == 1) {
                                 $r_b_ud = mysqli_fetch_array($b_ud);
                             ?>
                                 <div class="card col-lg-3 col-md-3 col-sm-6 mb-2">
-                                    <iframe src="https://drive.google.com/file/d/<?php echo $r_b_libro['link_portada']; ?>/preview" frameborder="none" style="width:100%; height:500px; overflow: hidden;" scrolling="no"></iframe>
+                                <div style="position: relative; background: #1e1e1f">
+                                        <iframe src="https://drive.google.com/file/d/<?php echo $r_b_libro['link_portada']; ?>/preview" frameborder="none" style="width:100%; height:500px; overflow: hidden;" scrolling="no"></iframe>
+                                        <div style="width:80px; height:40px; position:absolute; background: transparent; right:12px; top: 12px;"><img src="https://biblioteca.iestphuanta.edu.pe/images/logo.png" alt="" width="100%"></div>
+                                        <div style="width:100%; height:500px; position:absolute; background: transparent; right:0px; top: 0px;">&nbsp;</div>
+                                    </div>
                                     <div class="card-body">
                                         <h5 class="card-title" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;"><?php echo $r_b_libro['titulo']; ?></h5>
                                         <p class="card-text"><?php echo $r_b_programa['nombre'] . ' - S-' . $r_b_semestre['descripcion']; ?></p>
@@ -121,7 +125,11 @@ if (!verificar_sesion($conexion) == 1) {
                                 $r_b_ud = mysqli_fetch_array($b_ud);
                             ?>
                                 <div class="card col-lg-3 col-md-3 col-sm-6 mb-2">
-                                    <iframe src="https://drive.google.com/file/d/<?php echo $r_b_libro['link_portada']; ?>/preview" frameborder="none" style="width:100%; height:500px; overflow: hidden;" scrolling="no"></iframe>
+                                    <div style="position: relative; background: #1e1e1f">
+                                        <iframe src="https://drive.google.com/file/d/<?php echo $r_b_libro['link_portada']; ?>/preview" frameborder="none" style="width:100%; height:500px; overflow: hidden;" scrolling="no"></iframe>
+                                        <div style="width:80px; height:40px; position:absolute; background: transparent; right:12px; top: 12px;"><img src="https://biblioteca.iestphuanta.edu.pe/images/logo.png" alt="" width="100%"></div>
+                                        <div style="width:100%; height:500px; position:absolute; background: transparent; right:0px; top: 0px;">&nbsp;</div>
+                                    </div>
                                     <div class="card-body">
                                         <h5 class="card-title" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;"><?php echo $r_b_libro['titulo']; ?></h5>
                                         <p class="card-text"><?php echo $r_b_programa['nombre'] . ' - S-' . $r_b_semestre['descripcion']; ?></p>
