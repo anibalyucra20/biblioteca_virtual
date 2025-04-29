@@ -87,7 +87,7 @@ if (!verificar_sesion($conexion) == 1) {
                                 <div class="card col-lg-3 col-md-3 col-sm-6 mb-2">
                                     <div style="position: relative; background: #1e1e1f">
                                         <iframe src="https://drive.google.com/file/d/<?php echo $r_b_libro['link_portada']; ?>/preview" frameborder="none" style="width:100%; height:500px; overflow: hidden;" scrolling="no"></iframe>
-                                        <div style="width:80px; height:40px; position:absolute; background: transparent; right:12px; top: 12px;"><img src="https://biblioteca.iestphuanta.edu.pe/images/logo.png" alt="" width="100%"></div>
+                                        <div style="width:100px; height:50px; position:absolute; background: transparent; right:12px; top: 12px;"><img src="https://biblioteca.iestphuanta.edu.pe/images/logo.png" alt="" width="100%"></div>
                                         <div style="width:100%; height:500px; position:absolute; background: transparent; right:0px; top: 0px;">&nbsp;</div>
                                     </div>
                                     <div class="card-body">
