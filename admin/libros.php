@@ -14,20 +14,20 @@ include("../include/funciones.php");
               </script>";
 } else {*/
 
-    $buscar_sesion = buscar_sesion($conexion, $_SESSION['id_sesion_biblioteca']);
-    $r_buscar_sesion = mysqli_fetch_array($buscar_sesion);
-    $id_usuario = $r_buscar_sesion['id_usuario'];
+$buscar_sesion = buscar_sesion($conexion, $_SESSION['id_sesion_biblioteca']);
+$r_buscar_sesion = mysqli_fetch_array($buscar_sesion);
+$id_usuario = $r_buscar_sesion['id_usuario'];
 
-    if ($r_buscar_sesion['tipo_acceso'] == 'docente' || $r_buscar_sesion['tipo_acceso'] == 'estudiante') {
-        $b_usuario = buscarDocenteById($conexion_sispa, $r_buscar_sesion['id_usuario']);
-        $tipo_usuario = "docente";
-    } else {
-        echo "<script>
+if ($r_buscar_sesion['tipo_acceso'] == 'docente' || $r_buscar_sesion['tipo_acceso'] == 'estudiante') {
+    $b_usuario = buscarDocenteById($conexion_sispa, $r_buscar_sesion['id_usuario']);
+    $tipo_usuario = "docente";
+} else {
+    echo "<script>
                   alert('Error Usted no cuenta con permiso para acceder a esta página');
                   window.location.replace('../index.php');
               </script>";
-    }
-    $r_b_usuario = mysqli_fetch_array($b_usuario);
+}
+$r_b_usuario = mysqli_fetch_array($b_usuario);
 
 ?>
 <!DOCTYPE html>
@@ -66,11 +66,11 @@ include("../include/funciones.php");
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="card">
                                 <div class="card-body">
-                                    
+
                                     <h4 class="card-title">Relación de Ejemplares</h4>
                                     <a href="registro_libro.php" class="btn btn-success">Nuevo <i class="fas fa-plus-square"></i></a><br>
-                                    <a href="asignacion_masiva.php" rel="noopener noreferrer" class="btn btn-warning">Asignación masiva</a>
-                                    <br><br>
+                                    <!--<a href="asignacion_masiva.php" rel="noopener noreferrer" class="btn btn-warning">Asignación masiva</a>
+--><br><br>
                                     <table id="example" class="table dt-responsive " width="100%">
                                         <thead>
                                             <tr>
@@ -85,37 +85,37 @@ include("../include/funciones.php");
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php 
+                                            <?php
                                             $b_libros = buscar_libro($conexion);
-                                            $cont = 0 ;
+                                            $cont = 0;
                                             while ($r_b_libro = mysqli_fetch_array($b_libros)) {
-                                                $cont ++;
-                                             ?>
-                                            <tr>
-                                                <td><?php echo $cont; ?></td>
-                                                <!--<td><iframe src="https://drive.google.com/file/d/<?php echo $r_b_libro['link_portada']; ?>/preview" frameborder="none" style="width:80%; height:100px; overflow: hidden;" scrolling="no"></iframe></td>-->
-                                                <td><?php echo $r_b_libro['titulo']; ?></td>
-                                                <td><?php echo $r_b_libro['autor']; ?></td>
-                                                <td><?php
-                                                    $b_programa = buscarCarrerasById($conexion_sispa, $r_b_libro['id_programa_estudio']);
-                                                    $r_b_programa = mysqli_fetch_array($b_programa);
-                                                    echo $r_b_programa['nombre'];
-                                                ?></td>
-                                                <td><?php
-                                                    $b_semestre = buscarSemestreById($conexion_sispa, $r_b_libro['id_semestre']);
-                                                    $r_b_semestre = mysqli_fetch_array($b_semestre);
-                                                    echo $r_b_semestre['descripcion'];
-                                                ?></td>
-                                                <td><?php
-                                                    $b_ud = buscarUdById($conexion_sispa, $r_b_libro['id_unidad_didactica']);
-                                                    $r_b_ud = mysqli_fetch_array($b_ud);
-                                                    echo $r_b_ud['descripcion'];
-                                                ?></td>
-                                                <td>
-                                                    <a href="editar_libro.php?libro=<?php echo $r_b_libro['link_portada']; ?>" class="btn btn-success">Editar</a>
-                                                    <a href="ver_asignaciones.php?libro=<?php echo $r_b_libro['link_portada']; ?>" class="btn btn-info"><i class="fa fa-code-branch"></i></a>
-                                                </td>
-                                            </tr>
+                                                $cont++;
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $cont; ?></td>
+                                                    <!--<td><iframe src="https://drive.google.com/file/d/<?php echo $r_b_libro['link_portada']; ?>/preview" frameborder="none" style="width:80%; height:100px; overflow: hidden;" scrolling="no"></iframe></td>-->
+                                                    <td><?php echo $r_b_libro['titulo']; ?></td>
+                                                    <td><?php echo $r_b_libro['autor']; ?></td>
+                                                    <td><?php
+                                                        $b_programa = buscarCarrerasById($conexion_sispa, $r_b_libro['id_programa_estudio']);
+                                                        $r_b_programa = mysqli_fetch_array($b_programa);
+                                                        echo $r_b_programa['nombre'];
+                                                        ?></td>
+                                                    <td><?php
+                                                        $b_semestre = buscarSemestreById($conexion_sispa, $r_b_libro['id_semestre']);
+                                                        $r_b_semestre = mysqli_fetch_array($b_semestre);
+                                                        echo $r_b_semestre['descripcion'];
+                                                        ?></td>
+                                                    <td><?php
+                                                        $b_ud = buscarUdById($conexion_sispa, $r_b_libro['id_unidad_didactica']);
+                                                        $r_b_ud = mysqli_fetch_array($b_ud);
+                                                        echo $r_b_ud['descripcion'];
+                                                        ?></td>
+                                                    <td>
+                                                        <a href="editar_libro.php?libro=<?php echo $r_b_libro['link_portada']; ?>" class="btn btn-success">Editar</a>
+                                                        <a href="ver_asignaciones.php?libro=<?php echo $r_b_libro['link_portada']; ?>" class="btn btn-info"><i class="fa fa-code-branch"></i></a>
+                                                    </td>
+                                                </tr>
                                             <?php } ?>
                                         </tbody>
                                     </table>
@@ -165,29 +165,29 @@ include("../include/funciones.php");
     <script src="../pp/assets/js/theme.js"></script>
 
     <script>
-    $(document).ready(function() {
-    $('#example').DataTable({
-      "language":{
-    "processing": "Procesando...",
-    "lengthMenu": "Mostrar _MENU_ registros",
-    "zeroRecords": "No se encontraron resultados",
-    "emptyTable": "Ningún dato disponible en esta tabla",
-    "sInfo": "Mostrando del _START_ al _END_ de un total de _TOTAL_ registros",
-    "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-    "infoFiltered": "(filtrado de un total de _MAX_ registros)",
-    "search": "Buscar:",
-    "infoThousands": ",",
-    "loadingRecords": "Cargando...",
-    "paginate": {
-        "first": "Primero",
-        "last": "Último",
-        "next": "Siguiente",
-        "previous": "Anterior"
-    },
-      }
-    });
+        $(document).ready(function() {
+            $('#example').DataTable({
+                "language": {
+                    "processing": "Procesando...",
+                    "lengthMenu": "Mostrar _MENU_ registros",
+                    "zeroRecords": "No se encontraron resultados",
+                    "emptyTable": "Ningún dato disponible en esta tabla",
+                    "sInfo": "Mostrando del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "search": "Buscar:",
+                    "infoThousands": ",",
+                    "loadingRecords": "Cargando...",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Último",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    },
+                }
+            });
 
-    } );
+        });
     </script>
 </body>
 

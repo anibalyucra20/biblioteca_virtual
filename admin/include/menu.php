@@ -20,9 +20,9 @@
                     <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="reasignar_libro.php">
+                    <!--<a class="dropdown-item d-flex align-items-center justify-content-between" href="reasignar_libro.php">
                         <span>Reasignar Libros</span>
-                    </a>
+                    </a>-->
                     <a class="dropdown-item d-flex align-items-center justify-content-between" href="../index.php">
                         <span>Cambiar a Biblioteca</span>
                     </a>
