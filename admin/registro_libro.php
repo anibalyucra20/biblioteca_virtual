@@ -5,15 +5,14 @@ include("../include/conexion_sispa.php");
 include("../include/busquedas.php");
 include("../include/busquedas_sispa.php");
 include("../include/funciones.php");
-//include("../include/verificar_sesion_admin.php");
+include("../include/verificar_sesion_admin.php");
 
-/*if (!verificar_sesion($conexion) == 1) {
+if (!verificar_sesion($conexion) == 1) {
     echo "<script>
                   alert('Error Usted no cuenta con permiso para acceder a esta página');
                   window.location.replace('../index.php');
               </script>";
 } else {
-*/
     $buscar_sesion = buscar_sesion($conexion, $_SESSION['id_sesion_biblioteca']);
     $r_buscar_sesion = mysqli_fetch_array($buscar_sesion);
     $id_usuario = $r_buscar_sesion['id_usuario'];
@@ -205,4 +204,4 @@ include("../include/funciones.php");
 
 </html>
 <?php 
-//}
+}
