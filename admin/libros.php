@@ -76,7 +76,7 @@ if (!verificar_sesion($conexion) == 1) {
                                                     <?php 
                                                     $b_pes = buscarCarreras($conexion_sispa);
                                                     while ($rb_pes = mysqli_fetch_array($b_pes)) {
-                                                        echo '<option value="'.$rb_pes['nombre'].'">'.$rb_pes['nombre'].' - '.$rb_pes['plan_estudio'].'</option>';
+                                                        echo '<option value="'.$rb_pes['nombre'].'">'.$rb_pes['nombre'].'</option>';
                                                     }
                                                     ?>
                                                 </select>
