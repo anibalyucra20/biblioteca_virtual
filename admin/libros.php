@@ -76,12 +76,13 @@ if (!verificar_sesion($conexion) == 1) {
                                                     <?php 
                                                     $b_pes = buscarCarreras($conexion_sispa);
                                                     while ($rb_pes = mysqli_fetch_array($b_pes)) {
-                                                        echo '<option value="'.$rb_pes['nombre'].'">'.$rb_pes['nombre'].'</option>';
+                                                        echo '<option value="'.$rb_pes['nombre'].'">'.$rb_pes['nombre'].' - '.$rb_pes['plan_estudio'].'</option>';
                                                     }
                                                     ?>
                                                 </select>
                                             </div>
                                         </div>
+                                        <br>
                                         <a href="registro_libro.php" class="btn btn-success">Nuevo <i class="fas fa-plus-square"></i></a><br>
                                         <!--<a href="asignacion_masiva.php" rel="noopener noreferrer" class="btn btn-warning">Asignación masiva</a>
 --><br><br>
