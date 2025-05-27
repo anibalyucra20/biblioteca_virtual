@@ -206,7 +206,7 @@ if (!verificar_sesion($conexion) == 1) {
         </script>
         <script>
             $(document).ready(function() {
-                var table = $('#example').DataTable();
+                var table = $('#example').DataTable({ "order": [[ 3, "desc" ]]});
 
                 // Custom filter for Programa de Estudios
                 $('#filtro_pe').on('change', function() {
