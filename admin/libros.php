@@ -206,7 +206,7 @@ if (!verificar_sesion($conexion) == 1) {
         </script>
         <script>
             $(document).ready(function() {
-                var table = $('#example').DataTable({ "order": [[ 3, "desc" ]]});
+                var table = $('#example').DataTable();
 
                 // Custom filter for Programa de Estudios
                 $('#filtro_pe').on('change', function() {
@@ -215,6 +215,7 @@ if (!verificar_sesion($conexion) == 1) {
                     if (filtro=='INDUSTRIAS DE ALIMENTOS Y BEBIDAS') {
                         //table.search((d) => d.includes('INDUSTRIAS DE ALIMENTOS Y BEBIDAS','INDUSTRIAS ALIMENTARIAS')).draw();
                         table.column(3).search('INDUSTRIAS DE ALIMENTOS Y BEBIDAS|INDUSTRIAS ALIMENTARIAS', true, false).draw();
+                        table.order([3, 'desc']);
                     }
                 });
             });
