@@ -212,6 +212,11 @@ if (!verificar_sesion($conexion) == 1) {
                 $('#filtro_pe').on('change', function() {
                     var filtro = $(this).val();
                     table.column(3).search(filtro).draw();
+                    if (filtro=='INDUSTRIAS DE ALIMENTOS Y BEBIDAS') {
+                        //table.search((d) => d.includes('INDUSTRIAS DE ALIMENTOS Y BEBIDAS','INDUSTRIAS ALIMENTARIAS')).draw();
+                        table.column(3).search('INDUSTRIAS DE ALIMENTOS Y BEBIDAS|INDUSTRIAS ALIMENTARIAS', true, false).draw();
+                        table.order([3, 'desc']);
+                    }
                 });
             });
         </script>
